@@ -1,14 +1,17 @@
 import CreateTailwindStyle from "@/utils/CreateTailwindStyle";
 
 const className = {
-    gradientDivider: new CreateTailwindStyle<'fillPercentage'>([
-        'w-full',
-        'h-px',
-        'bg-gradient-to-r',
+    gradientDivider: new CreateTailwindStyle<'direction'>([
+        '',
         'from-transparent', 'from-0%',
         'via-primary', 'via-50%',
         'to-transparent', 'to-100%',
     ])
+        .addConditional('direction', (defaultDirection: boolean) => (
+            defaultDirection
+                ? 'bg-gradient-to-r w-full h-px'
+                : 'bg-gradient-to-t h-full w-px'
+        ))
 }
 
 export default className;
