@@ -25,7 +25,7 @@ class CreateTailwindStyle<T> extends Set {
 
     public toClassName(className: string = "") {
         try {
-            return `${Array.from(this).join(' ')} ${this.tempStyle} ${className}`.trim();
+            return `${Array.from(this).join(' ')} ${this.tempStyle} ${className}`.trim().replaceAll(/\s+/g, ' ');
         } finally {
             this.tempStyle = "";
         }
