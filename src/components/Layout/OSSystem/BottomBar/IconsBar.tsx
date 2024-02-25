@@ -1,24 +1,19 @@
 'use client';
 
-import Image from "next/image";
 import { useMemo } from "react";
-import AppIcons, { AppIconWrapper } from "./AppIcons";
+import AppIcons from "./AppIcons";
 
 import type { FC } from "react";
 import type { IconsBarProps } from "../types";
+import GradientDividerFromCenter from "@/components/Divider/GradientDividerFromCenter";
 
 const IconsBar: FC<IconsBarProps> = props => {
+    const IconOS = useMemo(() => AppIcons([{ name: 'COFFEE', focus: false }]), []);
     const Icons = useMemo(() => AppIcons(props.appIcons), props.appIcons);
     return (
         <div className="flex flex-row">
-            <AppIconWrapper className='flex-0 relative h-11 w-11'>
-                <Image
-                    fill
-                    src="/Duck.svg"
-                    alt='Duck Operational System logo'
-                    className="p-1"
-                />
-            </AppIconWrapper>
+            {...IconOS}
+            <GradientDividerFromCenter toVertical />
             {...Icons}
         </div>
     );

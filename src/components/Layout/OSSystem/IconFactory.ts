@@ -1,9 +1,10 @@
 import { RiContactsBookLine, RiFolder2Line, RiFolderUserLine, RiLightbulbLine } from "react-icons/ri";
 import { MdOutlineSchool } from "react-icons/md";
+import { PiCoffeeBold } from "react-icons/pi";
 
 import type { AppIconsName } from "./types";
 
-const className = 'w-full h-full p-1 text-primary';
+const className = 'w-full h-full p-1 transition-all active:drop-shadow-[0_0_3px_theme(colors.primary)] text-primary';
 
 const IconFactory = (iconName: AppIconsName): React.JSX.Element => {
     let Icon: JSX.Element | undefined;
@@ -22,6 +23,9 @@ const IconFactory = (iconName: AppIconsName): React.JSX.Element => {
             break;
         case 'SKILLS':
             Icon = RiFolder2Line({ className });
+            break;
+        case 'COFFEE':
+            Icon = PiCoffeeBold({ className });
             break;
     }
     return Icon;

@@ -1,4 +1,4 @@
-export type AppIconsName = "ABOUT_ME" | "PROJECTS" | "SKILLS" | "EDUCATION" | "CONTACT";
+export type AppIconsName = "ABOUT_ME" | "PROJECTS" | "SKILLS" | "EDUCATION" | "CONTACT" | "COFFEE";
 
 export type AppIcon = { 
     name: AppIconsName;
