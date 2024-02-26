@@ -1,6 +1,12 @@
+import Clock from './Clock';
 import IconsBar from './IconsBar';
 
 import type { FC } from "react";
+
+/* 
+Talvez criar um gerenciador de janelas onde ele indica em qual o usuário abriu, e com base nisso, adicionar a janela em um array
+que guarda o gerenciamento da janela ex: { status: minimized|show, ReactIcon, focus: false|true } com base nisso controlar
+o estado da janela e dos atalhos no workspace e bottombar. */
 
 const BottomBar: FC = () => {
     return (
@@ -13,7 +19,7 @@ const BottomBar: FC = () => {
                 { focus: false, name: 'SKILLS' },
             ]} />
             <div>
-
+                <Clock />
             </div>
         </div>
     );
