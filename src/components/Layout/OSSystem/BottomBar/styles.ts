@@ -7,6 +7,7 @@ const className = {
         'border-solid',
         'border-x-2',
         'border-y-2',
+        'cursor-pointer',
         'border-secondary',
         'hover:bg-background',
     ]).addConditional('focus', (focus: boolean) => focus ? 'border-b-primary' : ''),
