@@ -10,9 +10,9 @@ export const AppIconWrapper: FC<{
 }> = props => {
     className.appIconWrapperStyle.callConditional('focus', props?.focus);
     return (
-        <div className={className.appIconWrapperStyle.toClassName(props.className)}>
+        <a className={className.appIconWrapperStyle.toClassName(props.className)}>
             {props.children}
-        </div>
+        </a>
     );
 }
 
