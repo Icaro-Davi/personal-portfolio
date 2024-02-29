@@ -4,6 +4,7 @@ import type { AppIconsName } from "../../types";
 export type WindowState = {
     id: string;
     focus: boolean;
+    title: string;
     iconName: AppIconsName;
     isMinimized: boolean;
     children?: ReactNode;
