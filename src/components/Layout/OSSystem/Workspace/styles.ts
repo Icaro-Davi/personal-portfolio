@@ -10,7 +10,7 @@ const className = {
         'cursor-pointer'
     ]),
     shortcutAppTitle: new CreateTailwindStyle([
-        'max-w-16',
+        'max-w-18',
         'max-h-6',
         'text-xs',
         'text-center',
