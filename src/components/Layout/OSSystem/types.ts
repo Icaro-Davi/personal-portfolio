@@ -1,10 +1,19 @@
+import { ReactNode } from "react";
+
 export type AppIconsName = "ABOUT_ME" | "PROJECTS" | "SKILLS" | "EDUCATION" | "CONTACT" | "COFFEE";
 
-export type AppIcon = { 
+export type AppIcon = {
     name: AppIconsName;
-    focus: boolean;
+    window: {
+        focus: boolean;
+        id?: string;
+        title: string;
+    }
 }
 
-export type IconsBarProps = {
-    appIcons: AppIcon[];
-}
+export type WorkspaceAppsType = {
+    title: string;
+    iconName: AppIconsName;
+    id: string;
+    content: ReactNode;
+}[];
