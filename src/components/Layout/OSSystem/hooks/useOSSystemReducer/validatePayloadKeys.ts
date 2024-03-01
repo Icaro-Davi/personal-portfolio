@@ -6,7 +6,8 @@ const createLog = new CreateLog('OSSystemHookValidatePayloadKeys');
 const errorMessages = {
     requireProperties: (payload: any, requiredPropertiesKeys: string[]) =>
         `Payload must include "${requiredPropertiesKeys.filter(key => !Object.keys(payload).includes(key))}"`,
-    isNotObject: (payload: any) => `Payload only accpets type object, current "${typeof payload}"`
+    isNotObject: (payload: any) =>
+        `Payload only accpets type object, current "${typeof payload}"`
 }
 
 function validatePayloadKeys(params: {
