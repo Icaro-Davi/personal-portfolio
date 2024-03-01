@@ -5,7 +5,6 @@ import IconFactory from '../IconFactory';
 import useOSSystemContext from "../hooks/useOSSystemContext";
 
 import type { FC, ReactNode } from "react";
-import type { AppIcon } from "../types";
 import type { AppIconWrapperProps, AppIcons } from './types';
 
 export const AppIconWrapper: FC<AppIconWrapperProps> = props => {
@@ -15,20 +14,21 @@ export const AppIconWrapper: FC<AppIconWrapperProps> = props => {
 
     const onClickHandleWindowVisibility = () => {
         if (props.windowId) {
-            const _winwod = state.openWindows.get(props.windowId);
-            if (_winwod) {
-                if (_winwod.focus) {
+            const _window = state.openWindows.get(props.windowId);
+            if (_window) {
+                if (props?.windowInFocus) {
                     dispatch({
                         type: 'minimizeWindow',
-                        payload: { id: props.windowId }
+                        payload: { id: _window.id }
                     })
                     return;
+                } else {
+                    dispatch({
+                        type: 'openWindow',
+                        payload: { id: _window.id }
+                    });
                 }
             }
-            dispatch({
-                type: 'openWindow',
-                payload: { id: props.windowId }
-            });
         }
         props.onClick?.();
     }

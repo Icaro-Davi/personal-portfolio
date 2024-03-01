@@ -11,8 +11,12 @@ const ACTION: ActionFuncByType = {
             const _window = state.openWindows.get(action.payload.id)!;
             state.openWindows.set(_window.id, {
                 ..._window,
-                focus: true,
                 isMinimized: false,
+            });
+
+            state = ACTION['moveWindowToTop'](state, {
+                type: "moveWindowToTop",
+                payload: { id: action.payload.id }
             });
         } else {
             validatePayloadKeys({ action, keys: ['iconName', 'title'] });
@@ -22,9 +26,10 @@ const ACTION: ActionFuncByType = {
                 id: action.payload.id,
                 title: action.payload.title,
                 iconName: action.payload.iconName,
-                children: action.payload.children
+                children: action.payload.children,
             }
             state.openWindows.set(newWindow.id, newWindow);
+            state.windowQueue.push(action.payload.id);
         }
 
         return { ...state };
@@ -35,7 +40,12 @@ const ACTION: ActionFuncByType = {
 
         if (state.openWindows.has(action.payload.id)) {
             const _window = state.openWindows.get(action.payload.id)!;
-            state.openWindows.set(_window.id, { ..._window, isMinimized: true, focus: false });
+            state.openWindows.set(_window.id, {
+                ..._window,
+                isMinimized: true,
+            });
+            state.windowQueue.splice(state.windowQueue.indexOf(action.payload.id), 1);
+            state.windowQueue.unshift(action.payload.id);
         }
 
         return { ...state };
@@ -46,6 +56,19 @@ const ACTION: ActionFuncByType = {
 
         if (state.openWindows.has(action.payload.id)) {
             state.openWindows.delete(action.payload.id);
+            state.windowQueue.splice(state.windowQueue.indexOf(action.payload.id), 1);
+        }
+
+        return { ...state };
+    },
+
+    "moveWindowToTop": (state, action) => {
+        validatePayloadKeys({ action, keys: ['id'] });
+
+        if (state.openWindows.has(action.payload.id)) {
+            const currentWindowIndex = state.windowQueue.indexOf(action.payload.id);
+            state.windowQueue.splice(currentWindowIndex, 1);
+            state.windowQueue.push(action.payload.id);
         }
 
         return { ...state };

@@ -9,12 +9,12 @@ import type { FC } from "react";
 
 const IconsBar: FC = () => {
     const { state } = useOSSystemContext();
-    
+
     const openWindowsReferences = Array.from(state.openWindows).map(([_, _window]) => ({
         name: _window.iconName,
         window: {
             id: _window.id,
-            focus: _window.focus,
+            focus: _window.id === state.windowQueue[state.windowQueue.length - 1] && !_window.isMinimized,
             title: _window.title
         }
     }));
