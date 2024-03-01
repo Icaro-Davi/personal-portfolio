@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${silkscreen.className} w-screen h-screen flex`}>{children}</body>
+      <body className={`${silkscreen.className} w-screen h-screen flex bg-background`}>{children}</body>
     </html>
   );
 }
