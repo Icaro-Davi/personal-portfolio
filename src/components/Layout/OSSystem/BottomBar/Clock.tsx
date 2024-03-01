@@ -16,7 +16,7 @@ const Clock: FC = () => {
         }
     }, []);
 
-    const time = date?.toLocaleTimeString('pt-BR', { hour12: true, hour: 'numeric', minute: 'numeric' });
+    const time = date?.toLocaleTimeString('pt-BR', { hour12: false, hour: 'numeric', minute: 'numeric' });
     const _date = date?.toLocaleDateString('pt-BR');
 
     return (
