@@ -6,7 +6,7 @@ export type WindowState = {
     title: string;
     iconName: AppIconsName;
     isMinimized: boolean;
-    isMaxmized: boolean;
+    isMaximized: boolean;
     children?: ReactNode;
     positionX?: number;
     positionY?: number;

@@ -21,6 +21,7 @@ export const renderFileWindowsByIndex = (state: InitialStateType, dispatch: Disp
                     width: _window.width,
                     height: _window.height
                 },
+                isMaximized: _window.isMaximized,
                 onMaximize: (isMaximized: boolean) => dispatch({
                     type: 'maxmizeWindow',
                     payload: { id: _window.id, isMaximized }

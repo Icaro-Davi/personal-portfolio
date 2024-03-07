@@ -23,7 +23,7 @@ const ACTION: ActionFuncByType = {
             const newWindow = {
                 focus: true,
                 isMinimized: false,
-                isMaxmized: false,
+                isMaximized: false,
                 id: action.payload.id,
                 title: action.payload.title,
                 iconName: action.payload.iconName,
@@ -59,7 +59,7 @@ const ACTION: ActionFuncByType = {
         if (_window) {
             state.openWindows.set(_window.id, {
                 ..._window,
-                isMaxmized: action.payload.isMaximized
+                isMaximized: action.payload.isMaximized
             });
         }
 
@@ -109,6 +109,7 @@ const ACTION: ActionFuncByType = {
             if (haveDifferentCoordinates) {
                 state.openWindows.set(_window.id, {
                     ..._window,
+                    isMaximized: false,
                     ...action.payload.positionX ? { positionX: action.payload.positionX } : {},
                     ...action.payload.positionY ? { positionY: action.payload.positionY } : {},
                     ...action.payload.width ? { width: action.payload.width } : {},
