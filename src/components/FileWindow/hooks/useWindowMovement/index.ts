@@ -15,10 +15,12 @@ function useWindowMovement<C extends HTMLElement, H extends HTMLElement>(params?
             dragAndDrop = new DragAndDrop({
                 draggableElement: headerRef.current,
                 containerElement: containerRef.current,
-                threshold: params?.headerThreshold
+                threshold: params?.headerThreshold,
+                onWindowMovementEnd: params?.onWindowMOvementEnd
             });
             resizeWindow = new ResizeWindow({
-                element: containerRef.current
+                element: containerRef.current,
+                onWindowMovementEnd: params?.onWindowMOvementEnd
             });
         }
 

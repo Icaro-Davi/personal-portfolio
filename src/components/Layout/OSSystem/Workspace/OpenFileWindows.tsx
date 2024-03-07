@@ -15,6 +15,16 @@ export const renderFileWindowsByIndex = (state: InitialStateType, dispatch: Disp
             const fileWindowProps = {
                 zIndex: index + 1,
                 title: _window.title,
+                coordinates: {
+                    x: _window.positionX,
+                    y: _window.positionY,
+                    width: _window.width,
+                    height: _window.height
+                },
+                onMaximize: (isMaximized: boolean) => dispatch({
+                    type: 'maxmizeWindow',
+                    payload: { id: _window.id, isMaximized }
+                }),
                 onClickClose: () => dispatch({
                     type: 'closeWindow',
                     payload: { id: _window.id }
@@ -23,6 +33,16 @@ export const renderFileWindowsByIndex = (state: InitialStateType, dispatch: Disp
                     type: 'minimizeWindow',
                     payload: { id: _window.id }
                 }),
+                onWindowMovementEnd: ((coordinates) => dispatch({
+                    type: 'updateCoordinates',
+                    payload: {
+                        id: _window.id,
+                        ...coordinates.x ? { positionX: coordinates.x } : {},
+                        ...coordinates.y ? { positionY: coordinates.y } : {},
+                        ...coordinates.width ? { width: coordinates.width } : {},
+                        ...coordinates.height ? { height: coordinates.height } : {},
+                    }
+                })) as Parameters<typeof FileWindow>['0']['onWindowMovementEnd']
             }
             return (
                 <FileWindow key={_window.id} {...fileWindowProps}>

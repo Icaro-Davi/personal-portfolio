@@ -1,3 +1,5 @@
+import { OnWindowMovementEndFunc } from "./types";
+
 class DragAndDrop {
     private draggableElement: HTMLElement;
     private containerElement: HTMLElement;
@@ -6,15 +8,18 @@ class DragAndDrop {
     private isAvailableToDrag = false;
     private threshold: number = 5;
     private listenerRef: { [key: string]: (event: MouseEvent | TouchEvent) => void } = {};
+    private onWindowMovementEnd: OnWindowMovementEndFunc | undefined;
 
     constructor(params: {
         draggableElement: HTMLElement;
         containerElement: HTMLElement;
         threshold?: number;
+        onWindowMovementEnd?: OnWindowMovementEndFunc;
     }) {
         this.draggableElement = params.draggableElement;
         this.containerElement = params.containerElement;
         this.threshold = params.threshold ?? this.threshold;
+        this.onWindowMovementEnd = params.onWindowMovementEnd;
 
         this.listenerRef[this.onStart.name] = this.onStart.bind(this);
         this.listenerRef[this.onMove.name] = this.onMove.bind(this);
@@ -24,7 +29,6 @@ class DragAndDrop {
         this.draggableElement.addEventListener('mousedown', this.listenerRef[this.onStart.name]);
         this.draggableElement.addEventListener('mouseup', this.listenerRef[this.onEnd.name]);
         this.draggableElement.addEventListener('touchstart', this.listenerRef[this.onStart.name]);
-        this.draggableElement.addEventListener('mouseup', this.listenerRef[this.onEnd.name]);
         this.draggableElement.addEventListener('mousemove', this.listenerRef[this.onMouseHover.name]);
     }
 
@@ -32,7 +36,6 @@ class DragAndDrop {
         this.draggableElement.removeEventListener('mousedown', this.listenerRef[this.onStart.name]);
         this.draggableElement.removeEventListener('mouseup', this.listenerRef[this.onEnd.name]);
         this.draggableElement.removeEventListener('touchstart', this.listenerRef[this.onStart.name]);
-        this.draggableElement.removeEventListener('mouseup', this.listenerRef[this.onEnd.name]);
         this.draggableElement.removeEventListener('mousemove', this.listenerRef[this.onMouseHover.name]);
         document.removeEventListener('mousemove', this.listenerRef[this.onMove.name]);
         document.removeEventListener('touchmove', this.listenerRef[this.onMove.name]);
@@ -67,7 +70,6 @@ class DragAndDrop {
         let mousePosY: number = 0;
 
         if (ev instanceof MouseEvent) {
-            ev.preventDefault();
             mousePosX = ev.pageX;
             mousePosY = ev.pageY;
         } else {
@@ -84,8 +86,8 @@ class DragAndDrop {
     private onMouseHover(ev: MouseEvent | TouchEvent) {
         if (ev instanceof MouseEvent) {
             if (
-                ev.offsetY >= this.threshold 
-                && ev.offsetX >= this.threshold 
+                ev.offsetY >= this.threshold
+                && ev.offsetX >= this.threshold
                 && (this.draggableElement.offsetWidth - ev.offsetX) >= this.threshold
             ) {
                 this.isAvailableToDrag = true;
@@ -102,6 +104,12 @@ class DragAndDrop {
         this.isDragging = false;
         document.removeEventListener('mousemove', this.listenerRef[this.onMove.name]);
         document.removeEventListener('touchmove', this.listenerRef[this.onMove.name]);
+        this.onWindowMovementEnd?.({
+            x: this.containerElement.offsetLeft,
+            y: this.containerElement.offsetTop,
+            width: this.containerElement.offsetWidth,
+            height: this.containerElement.offsetHeight
+        });
     }
 
     private setContainerElementCoordinates(x: number, y: number) {

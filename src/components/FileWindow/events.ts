@@ -2,30 +2,26 @@ import type { FileWindowElementEvents } from "./types";
 
 const events: FileWindowElementEvents = {
     headerButtons: {
-        maxmizeWindow: function () {
-            if (this.containerRef.current) {
-                this.containerRef.current.style.width = "100%";
-                this.containerRef.current.style.height = "100%";
-            }
-            this.setMaxmized(true);
+        maxmizeWindow: function (ev) {
+            ev.nativeEvent.stopImmediatePropagation(); ev.stopPropagation(); ev.preventDefault();
+            this.setMaximized(true);
+            this.onMaximize?.(true);
+        },
+        
+        restoreDownWindow: function (ev) {
+            ev.nativeEvent.stopImmediatePropagation(); ev.stopPropagation(); ev.preventDefault();
+            this.setMaximized(false);
+            this.onMaximize?.(false);
         },
 
-        restoreDownWindow: function () {
-            if (this.containerRef.current) {
-                this.containerRef.current.style.width = "";
-                this.containerRef.current.style.height = "";
-            }
-            this.setMaxmized(false);
+        onClickMinimize: function (ev) {
+            ev.stopPropagation();
+            this.onClickMinimize?.(ev);
         },
 
-        onClickMinimize: function (e) {
-            e.stopPropagation();
-            this.onClickMinimize?.(e);
-        },
-
-        onClickClose: function (e) {
-            e.stopPropagation();
-            this.onClickClose?.(e);
+        onClickClose: function (ev) {
+            ev.stopPropagation();
+            this.onClickClose?.(ev);
         }
     }
 }

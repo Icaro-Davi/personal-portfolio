@@ -1,14 +1,7 @@
-export type onWindowMoveParams = {
-    positionX: number;
-    positionY: number;
-    width: number;
-    height: number;
-}
-
-export type onWindowMoveFunc = (params: onWindowMoveParams) => void;
+export type OnWindowMovementEndFunc = (params: { x?: number; y?: number; width?: number; height?: number; }) => void;
 
 export type useWindowMovmentParams = {
-    onWindowMove?: onWindowMoveFunc;
+    onWindowMOvementEnd?: OnWindowMovementEndFunc;
     resizeWindow?: {
         edgeThreshold?:number;
         cornerThreshold?: number;

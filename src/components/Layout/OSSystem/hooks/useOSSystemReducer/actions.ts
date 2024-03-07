@@ -23,6 +23,7 @@ const ACTION: ActionFuncByType = {
             const newWindow = {
                 focus: true,
                 isMinimized: false,
+                isMaxmized: false,
                 id: action.payload.id,
                 title: action.payload.title,
                 iconName: action.payload.iconName,
@@ -51,6 +52,20 @@ const ACTION: ActionFuncByType = {
         return { ...state };
     },
 
+    "maxmizeWindow": (state, action) => {
+        validatePayloadKeys({ action, keys: ['id', 'isMaximized'] });
+
+        const _window = state.openWindows.get(action.payload.id);
+        if (_window) {
+            state.openWindows.set(_window.id, {
+                ..._window,
+                isMaxmized: action.payload.isMaximized
+            });
+        }
+
+        return { ...state };
+    },
+
     "closeWindow": (state, action) => {
         validatePayloadKeys({ action, keys: ['id'] });
 
@@ -72,6 +87,37 @@ const ACTION: ActionFuncByType = {
         }
 
         return { ...state };
+    },
+
+    "updateCoordinates": (state, action) => {
+        validatePayloadKeys({ action, keys: ['id'] });
+        const _window = state.openWindows.get(action.payload.id);
+        if (_window) {
+            const coordinates = {
+                ...action.payload.positionX ? { positionX: action.payload.positionX as number } : {},
+                ...action.payload.positionY ? { positionY: action.payload.positionY as number } : {},
+                ...action.payload.width ? { width: action.payload.width as number } : {},
+                ...action.payload.height ? { height: action.payload.height as number } : {},
+            }
+
+            const haveDifferentCoordinates = Object
+                .keys(coordinates)
+                .some(key => (
+                    coordinates[key as keyof typeof coordinates] !== _window[key as keyof typeof _window]
+                ));
+
+            if (haveDifferentCoordinates) {
+                state.openWindows.set(_window.id, {
+                    ..._window,
+                    ...action.payload.positionX ? { positionX: action.payload.positionX } : {},
+                    ...action.payload.positionY ? { positionY: action.payload.positionY } : {},
+                    ...action.payload.width ? { width: action.payload.width } : {},
+                    ...action.payload.height ? { height: action.payload.height } : {},
+                });
+                return { ...state };
+            }
+        }
+        return state;
     }
 
 }

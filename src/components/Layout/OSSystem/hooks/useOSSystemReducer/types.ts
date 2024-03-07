@@ -6,11 +6,12 @@ export type WindowState = {
     title: string;
     iconName: AppIconsName;
     isMinimized: boolean;
+    isMaxmized: boolean;
     children?: ReactNode;
-    positionX?: string;
-    positionY?: string;
-    width?: string;
-    height?: string;
+    positionX?: number;
+    positionY?: number;
+    width?: number;
+    height?: number;
 }
 
 export type InitialStateType = {
@@ -19,7 +20,7 @@ export type InitialStateType = {
 };
 
 export type ReducerActionType = {
-    type: "openWindow" | "minimizeWindow" | 'closeWindow' | 'moveWindowToTop',
+    type: "openWindow" | "minimizeWindow" | 'closeWindow' | 'moveWindowToTop' | 'updateCoordinates' | 'maxmizeWindow',
     payload?: any;
 }
 
