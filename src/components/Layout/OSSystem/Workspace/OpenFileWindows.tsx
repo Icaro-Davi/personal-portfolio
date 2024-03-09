@@ -6,13 +6,14 @@ import FileWindow from "@/components/FileWindow";
 
 import type { Dispatch, FC } from "react";
 import type { InitialStateType, ReducerActionType } from "../hooks/useOSSystemReducer/types";
+import type { FileWindowContainerProps } from '@/components/FileWindow/types';
 
 export const renderFileWindowsByIndex = (state: InitialStateType, dispatch: Dispatch<ReducerActionType>) =>
     state.windowQueue
         .map((windowId) => state.openWindows.get(windowId)!)
         .filter(_window => !_window.isMinimized)
         .map((_window, index) => {
-            const fileWindowProps = {
+            const fileWindowProps: FileWindowContainerProps = {
                 zIndex: index + 1,
                 title: _window.title,
                 coordinates: {
@@ -22,6 +23,10 @@ export const renderFileWindowsByIndex = (state: InitialStateType, dispatch: Disp
                     height: _window.height
                 },
                 isMaximized: _window.isMaximized,
+                onMouseDown: () => dispatch({
+                    type: 'moveWindowToTop',
+                    payload: { id: _window.id } 
+                }),
                 onMaximize: (isMaximized: boolean) => dispatch({
                     type: 'maxmizeWindow',
                     payload: { id: _window.id, isMaximized }

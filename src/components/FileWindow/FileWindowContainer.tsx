@@ -31,7 +31,7 @@ const FileWindowContainer: FC<FileWindowContainerProps> = ({ children, zIndex, .
     return (
         <div
             ref={containerRef}
-            onClick={() => console.log('change index')}
+            onMouseDown={props.onMouseDown}
             className="flex flex-col absolute bg-secondary border-x-2 border-b-2 border-primary w-full h-full sm:w-[70%] sm:h-[60%]"
             style={{
                 ...isMaximized ? maximizedStyle : coordinates,

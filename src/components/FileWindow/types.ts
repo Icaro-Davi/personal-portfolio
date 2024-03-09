@@ -19,6 +19,7 @@ export interface FileWindowContainerProps extends Omit<FileWindowHeaderProps, 'c
     children?: ReactNode;
     zIndex?: number;
     onWindowMovementEnd?: OnWindowMovementEndFunc;
+    onMouseDown?:  DOMAttributes<HTMLDivElement>['onMouseDown'];
     coordinates?: {
         x?: number; y?: number; 
         width?: number; height?: number;
