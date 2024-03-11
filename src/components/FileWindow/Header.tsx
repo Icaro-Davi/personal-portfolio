@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 import HeaderButtons from "./HeaderButtons";
 
 import type { FileWindowHeaderProps } from "./types";
@@ -10,4 +10,4 @@ const Header = forwardRef<HTMLDivElement, FileWindowHeaderProps>(({ title, ...pr
     </div>
 );
 
-export default Header;
+export default memo(Header);
