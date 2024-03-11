@@ -1,69 +1,35 @@
 'use client';
 
-import { memo } from 'react';
+import { useState, useEffect } from "react";
 import useOSSystemContext from "../hooks/useOSSystemContext";
-import FileWindow from "@/components/FileWindow";
+import FileWindow from "../FileWindow";
 
-import type { Dispatch, FC } from "react";
-import type { InitialStateType, ReducerActionType } from "../hooks/useOSSystemReducer/types";
-import type { FileWindowContainerProps } from '@/components/FileWindow/types';
-
-export const renderFileWindowsByIndex = (state: InitialStateType, dispatch: Dispatch<ReducerActionType>) =>
-    state.windowQueue
-        .map((windowId) => state.openWindows.get(windowId)!)
-        .filter(_window => !_window.isMinimized)
-        .map((_window, index) => {
-            const fileWindowProps: FileWindowContainerProps = {
-                zIndex: index + 1,
-                title: _window.title,
-                coordinates: {
-                    x: _window.positionX,
-                    y: _window.positionY,
-                    width: _window.width,
-                    height: _window.height
-                },
-                isMaximized: _window.isMaximized,
-                onMouseDown: () => dispatch({
-                    type: 'moveWindowToTop',
-                    payload: { id: _window.id } 
-                }),
-                onMaximize: (isMaximized: boolean) => dispatch({
-                    type: 'maxmizeWindow',
-                    payload: { id: _window.id, isMaximized }
-                }),
-                onClickClose: () => dispatch({
-                    type: 'closeWindow',
-                    payload: { id: _window.id }
-                }),
-                onClickMinimize: () => dispatch({
-                    type: 'minimizeWindow',
-                    payload: { id: _window.id }
-                }),
-                onWindowMovementEnd: ((coordinates) => dispatch({
-                    type: 'updateCoordinates',
-                    payload: {
-                        id: _window.id,
-                        ...coordinates.x ? { positionX: coordinates.x } : {},
-                        ...coordinates.y ? { positionY: coordinates.y } : {},
-                        ...coordinates.width ? { width: coordinates.width } : {},
-                        ...coordinates.height ? { height: coordinates.height } : {},
-                    }
-                })) as Parameters<typeof FileWindow>['0']['onWindowMovementEnd']
-            }
-            return (
-                <FileWindow key={_window.id} {...fileWindowProps}>
-                    {_window.children}
-                </FileWindow>
-            );
-        });
+import type { ReactNode, FC } from "react";
 
 const OpenFileWindows: FC = () => {
-    const { state, dispatch } = useOSSystemContext();
+    const { state } = useOSSystemContext();
+    const [fileWindowList, setComponnets] = useState<{ id: string; Component: ReactNode }[]>([]);
+
+    useEffect(() => {
+        setComponnets(oldState => {
+            return Array.from(state.openWindows).map(([windowId, _window]) => {
+                const Component = oldState.find(({ id }) => id === windowId);
+                if (Component) return Component;
+                return { id: windowId, Component: (<FileWindow key={windowId} windowId={windowId} />) };
+            });
+        });
+    }, [state.openWindows.size]);
+
+    const Components = state.windowQueue.reduce((prev, current) => {
+        prev.push(fileWindowList.find(({ id }) => id === current)?.Component);
+        return prev;
+    }, [] as ReactNode[]);
+    
     return (
         <div className="flex w-full h-full absolute justify-center items-center">
-            {renderFileWindowsByIndex(state, dispatch)}
+            {Components}
         </div>
     )
 }
 
-export default memo(OpenFileWindows);
+export default OpenFileWindows;
