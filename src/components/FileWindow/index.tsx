@@ -1,9 +1,4 @@
-import type { FC } from 'react';
-import FileWindowContainer from './FileWindowContainer';
-import { FileWindowContainerProps } from './types';
+import Container from './Container';
+import Header from './Header';
 
-const FileWindow: FC<FileWindowContainerProps> = props => (
-    <FileWindowContainer  {...props} />
-);
-
-export default FileWindow;
+export { Container, Header}
