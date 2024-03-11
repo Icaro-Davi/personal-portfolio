@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-import { Silkscreen } from "next/font/google";
-const silkscreen = Silkscreen({ weight: '400', subsets: ['latin'] });
+import className from "./styles";
 
 export const metadata: Metadata = {
   title: "Icaro Davi Dev",
@@ -16,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${silkscreen.className} w-screen h-screen flex bg-background`}>{children}</body>
+      <body className={className.body.toClassName()}>{children}</body>
     </html>
   );
 }
