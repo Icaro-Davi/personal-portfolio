@@ -1,15 +1,19 @@
-import type { DOMAttributes, Dispatch, ReactNode, RefObject, SetStateAction } from "react"
+import type { DOMAttributes, HTMLAttributes, ReactNode } from "react"
 import type { InnerFunctionElementEvent } from "../types";
-import type { OnWindowMovementEndFunc } from "./hooks/useWindowMovement/types";
+import type { OnWindowMovementEndFunc } from "../Layout/OSSystem/hooks/useWindowMovement/types";
 
 export type HeaderButtonsFileWindowProps = {
     onClickClose?: DOMAttributes<SVGAElement>['onClick'];
     onClickMinimize?: DOMAttributes<SVGAElement>['onClick'];
     onMaximize?: (isMaximized: boolean) => void;
-    containerRef: RefObject<HTMLDivElement>;
     isMaximized?: boolean;
-    setMaximized: Dispatch<SetStateAction<boolean>>;
+    setMaximized: (isMaximized: boolean) => void;
 }
+
+export type ContainerProps = {
+    headerchildren: ReactNode;
+    children: ReactNode;
+} & Omit<HTMLAttributes<HTMLDivElement>, 'className'>;
 
 export interface FileWindowHeaderProps extends HeaderButtonsFileWindowProps {
     title: string;
@@ -17,11 +21,11 @@ export interface FileWindowHeaderProps extends HeaderButtonsFileWindowProps {
 
 export interface FileWindowContainerProps extends Omit<FileWindowHeaderProps, 'containerRef' | 'setMaximized'> {
     children?: ReactNode;
-    zIndex?: number;
     onWindowMovementEnd?: OnWindowMovementEndFunc;
-    onMouseDown?:  DOMAttributes<HTMLDivElement>['onMouseDown'];
+    onMouseDown?: DOMAttributes<HTMLDivElement>['onMouseDown'];
+    windowId: string;
     coordinates?: {
-        x?: number; y?: number; 
+        x?: number; y?: number;
         width?: number; height?: number;
     }
 }
