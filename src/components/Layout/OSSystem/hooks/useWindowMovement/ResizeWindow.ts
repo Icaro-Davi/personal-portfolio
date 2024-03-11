@@ -11,6 +11,7 @@ class ResizeWindow {
     private minimumWindowSize = { width: 300, height: 400 };
     private edgeMarginMouseCursor = this.marginEvent;
     private onWindowMovementEnd: OnWindowMovementEndFunc | undefined;
+    private debounceId: NodeJS.Timeout | undefined;
 
     constructor(params: { element: HTMLElement; onWindowMovementEnd?: OnWindowMovementEndFunc }) {
         this.resizeElement = params.element;
@@ -43,9 +44,11 @@ class ResizeWindow {
 
         const elementWidth = this.resizeElement.clientWidth;
         const elementHeight = this.resizeElement.clientHeight;
+        const elementPosX = this.resizeElement.offsetLeft;
+        const elementPosY = this.resizeElement.offsetTop;
 
-        const mouseInnerPosX = ev.offsetX;
-        const mouseInnerPosY = ev.offsetY;
+        const mouseInnerPosX = ev.clientX - elementPosX;
+        const mouseInnerPosY = ev.clientY - elementPosY;
 
         if (mouseInnerPosX < this.marginEvent) {
             if (mouseInnerPosY < this.edgeMarginMouseCursor) {
@@ -171,12 +174,11 @@ class ResizeWindow {
         if (!this.currentResizingEdge) return;
 
         const calculateWindowSizeFunc = this.calculateWindowSize[this.currentResizingEdge];
+        const mouseInnerPositionX = ev.clientX - this.intialWindowDimensions.x;
+        const mouseInnerPositionY = ev.clientY - this.intialWindowDimensions.y;
         const { x, y, width, height } = {
             ...this.intialWindowDimensions,
-            ...calculateWindowSizeFunc(
-                (ev.clientX - this.intialWindowDimensions.x),
-                ev.clientY - this.intialWindowDimensions.y
-            )
+            ...calculateWindowSizeFunc(mouseInnerPositionX, mouseInnerPositionY)
         };
 
         if (width > this.minimumWindowSize.width) {
@@ -187,18 +189,22 @@ class ResizeWindow {
             this.resizeElement.style.height = `${height}px`;
             this.resizeElement.style.top = `${y}px`;
         }
+
+        clearTimeout(this.debounceId);
+        this.debounceId = setTimeout((params: { x: number; y: number; width: number; height: number; }) => {
+            this.onWindowMovementEnd?.(params);
+        }, 50, {
+            x: this.resizeElement.offsetLeft,
+            y:this.resizeElement.offsetTop,
+            width: this.resizeElement.offsetWidth,
+            height: this.resizeElement.offsetHeight
+        });
     }
 
     private onMouseUp(ev: MouseEvent) {
         this.isResizing = false;
         document.removeEventListener('mousemove', this.listenerRef[this.onResize.name]);
         document.removeEventListener('mouseup', this.listenerRef[this.onMouseUp.name]);
-        this.onWindowMovementEnd?.({
-            x: this.resizeElement.offsetLeft,
-            y: this.resizeElement.offsetTop,
-            width: this.resizeElement.offsetWidth,
-            height: this.resizeElement.offsetHeight
-        });
     }
 
 }
