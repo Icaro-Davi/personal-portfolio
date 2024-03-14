@@ -93,32 +93,16 @@ const ACTION: ActionFuncByType = {
         validatePayloadKeys({ action, keys: ['id'] });
         const _window = state.openWindows.get(action.payload.id);
         if (_window) {
-            const coordinates = {
-                ...action.payload.positionX ? { positionX: action.payload.positionX as number } : {},
-                ...action.payload.positionY ? { positionY: action.payload.positionY as number } : {},
-                ...action.payload.width ? { width: action.payload.width as number } : {},
-                ...action.payload.height ? { height: action.payload.height as number } : {},
+            const newState = {
+                ...typeof action.payload.positionX === 'number' ? { positionX: action.payload.positionX as number } : {},
+                ...typeof action.payload.positionY === 'number' ? { positionY: action.payload.positionY as number } : {},
+                ...typeof action.payload.width === 'number' ? { width: action.payload.width as number } : {},
+                ...typeof action.payload.height === 'number' ? { height: action.payload.height as number } : {},
+                isMaximized: false
             }
-
-            const haveDifferentCoordinates = Object
-                .keys(coordinates)
-                .some(key => (
-                    coordinates[key as keyof typeof coordinates] !== _window[key as keyof typeof _window]
-                ));
-
-            if (haveDifferentCoordinates) {
-                state.openWindows.set(_window.id, {
-                    ..._window,
-                    isMaximized: false,
-                    ...action.payload.positionX ? { positionX: action.payload.positionX } : {},
-                    ...action.payload.positionY ? { positionY: action.payload.positionY } : {},
-                    ...action.payload.width ? { width: action.payload.width } : {},
-                    ...action.payload.height ? { height: action.payload.height } : {},
-                });
-                return { ...state };
-            }
+            state.openWindows.set(_window.id, { ..._window, ...newState });
         }
-        return state;
+        return { ...state };
     }
 
 }
