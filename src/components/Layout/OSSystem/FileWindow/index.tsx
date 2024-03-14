@@ -12,12 +12,12 @@ import type { WindowState } from "../hooks/useOSSystemReducer/types";
 
 const getStyleByWindowState = (params: WindowState) => ({
     ...params.isMaximized
-        ? { top: '', left: '', width: '100%', height: '100%', }
+        ? { top: 'unset', left: 'unset', width: '100%', height: '100%', }
         : {
-            ...params?.positionY ? { top: `${params.positionY}px` } : {},
-            ...params?.positionX ? { left: `${params.positionX}px` } : {},
-            ...params?.width ? { width: `${params.width}px` } : {},
-            ...params?.height ? { height: `${params.height}px` } : {},
+            ...(typeof params?.positionY === 'number') ? { top: `${params.positionY}px` } : { top: '' },
+            ...(typeof params?.positionX === 'number') ? { left: `${params.positionX}px` } : { left: '' },
+            ...(typeof params?.width === 'number') ? { width: `${params.width}px` } : { width: '' },
+            ...(typeof params?.height === 'number') ? { height: `${params.height}px` } : { height: '' },
         },
 });
 
@@ -32,9 +32,8 @@ const FileWindowLayout: FC<{ windowId: string; }> = props => {
     });
 
     const containerProps = useMemo(() => ({
-        style: { ...getStyleByWindowState(windowState) },
         onMouseDown: events.container.onMouseDown.bind({ windowState, dispatch })
-    }), [windowState.isMinimized, windowState.isMaximized]);
+    }), []);
 
     const headerProps: FileWindowHeaderProps = useMemo(() => ({
         containerRef,
@@ -44,9 +43,12 @@ const FileWindowLayout: FC<{ windowId: string; }> = props => {
         onClickMinimize: events.header.onClickMinimize.bind({ windowState, dispatch })
     }), []);
 
+    const styles = getStyleByWindowState(windowState);
+    
     return (
         <Container
             ref={containerRef}
+            style={styles}
             headerchildren={(
                 <Header
                     ref={headerRef}

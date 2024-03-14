@@ -9,19 +9,14 @@ const events: EventsType = {
             });
         },
         onWindowMovementEnd(coordinates) {
-            console.log('coordinates', coordinates)
-            this.dispatch({
-                type: 'maxmizeWindow',
-                payload: { id: this.windowState.id, isMaximized: false }
-            });
             this.dispatch({
                 type: 'updateCoordinates',
                 payload: {
                     id: this.windowState.id,
-                    ...coordinates.x ? { positionX: coordinates.x } : {},
-                    ...coordinates.y ? { positionY: coordinates.y } : {},
-                    ...coordinates.width ? { width: coordinates.width } : {},
-                    ...coordinates.height ? { height: coordinates.height } : {},
+                    ...(typeof coordinates.x === 'number') ? { positionX: coordinates.x } : {},
+                    ...(typeof coordinates.y === 'number') ? { positionY: coordinates.y } : {},
+                    ...(typeof coordinates.width === 'number') ? { width: coordinates.width } : {},
+                    ...(typeof coordinates.height === 'number') ? { height: coordinates.height } : {},
                 }
             });
         }
