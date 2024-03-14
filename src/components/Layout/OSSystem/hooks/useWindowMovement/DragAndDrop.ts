@@ -1,9 +1,10 @@
-import { OnWindowMovementEndFunc } from "./types";
+import { OnWindowMovementEndFunc, SharedPropertiesType } from "./types";
 
 class DragAndDrop {
     private draggableElement: HTMLElement;
     private containerElement: HTMLElement;
-    private originalCoordinates = { x: 0, y: 0 };
+    private sharedProperties: SharedPropertiesType;
+    private initialInnerMousePositionPercentage = { x: 0, y: 0 };
     private isDragging = false;
     private isAvailableToDrag = false;
     private threshold: number = 5;
@@ -14,11 +15,13 @@ class DragAndDrop {
     constructor(params: {
         draggableElement: HTMLElement;
         containerElement: HTMLElement;
+        sharedProperties: SharedPropertiesType;
         threshold?: number;
         onWindowMovementEnd?: OnWindowMovementEndFunc;
     }) {
         this.draggableElement = params.draggableElement;
         this.containerElement = params.containerElement;
+        this.sharedProperties = params.sharedProperties;
         this.threshold = params.threshold ?? this.threshold;
         this.onWindowMovementEnd = params.onWindowMovementEnd;
 
@@ -63,8 +66,22 @@ class DragAndDrop {
         }
 
         this.isDragging = true;
-        this.originalCoordinates.x = mousePosX - this.containerElement.offsetLeft;
-        this.originalCoordinates.y = mousePosY - this.containerElement.offsetTop;
+
+        const innerMouseXPosition = (mousePosX - this.containerElement.offsetLeft);
+        const innerMouseYPosition = (mousePosY - this.containerElement.offsetTop);
+        this.initialInnerMousePositionPercentage.x = innerMouseXPosition / this.containerElement.offsetWidth;
+        this.initialInnerMousePositionPercentage.y = innerMouseYPosition / this.containerElement.offsetHeight;
+    }
+
+    private calculePosition(currentMousePosition: { x: number, y: number }): { x: number; y: number } {
+        const XPositionInPercentage = this.initialInnerMousePositionPercentage.x;
+        const YPositionInPercentage = this.initialInnerMousePositionPercentage.y;
+        const innerPositionX = Math.floor(XPositionInPercentage * this.sharedProperties.resizableElement.width);
+        const innerPositionY = Math.floor(YPositionInPercentage * this.sharedProperties.resizableElement.height);
+        return {
+            x: currentMousePosition.x - innerPositionX,
+            y: currentMousePosition.y - innerPositionY
+        }
     }
 
     private onMove(ev: MouseEvent | TouchEvent) {
@@ -81,18 +98,18 @@ class DragAndDrop {
             mousePosY = ev.touches[0].pageY;
         }
 
-        this.setContainerElementCoordinates(
-            mousePosX - this.originalCoordinates.x,
-            mousePosY - this.originalCoordinates.y
-        );
+        const { x, y } = this.calculePosition({ x: mousePosX, y: mousePosY });
 
-        clearTimeout(this.onWindowMovementDebounceId);
-        this.onWindowMovementDebounceId = setTimeout((params: { x: number; y: number }) => {
-            this.onWindowMovementEnd?.(params);
-        }, 50, {
-            x: mousePosX - this.originalCoordinates.x,
-            y: mousePosY - this.originalCoordinates.y,
-        });
+        this.sharedProperties.resizableElement.x = x;
+        this.sharedProperties.resizableElement.y = y;
+        const { height, width } = this.sharedProperties.resizableElement;
+
+        this.setContainerElementCoordinates(x, y, width, height);
+
+        if (this.onWindowMovementEnd) {
+            clearTimeout(this.onWindowMovementDebounceId);
+            this.onWindowMovementDebounceId = setTimeout(this.onWindowMovementEnd, 50, { x, y, width, height });
+        }
     }
 
     private onMouseHover(ev: MouseEvent | TouchEvent) {
@@ -118,9 +135,11 @@ class DragAndDrop {
         document.removeEventListener('touchmove', this.listenerRef[this.onMove.name]);
     }
 
-    private setContainerElementCoordinates(x: number, y: number) {
+    private setContainerElementCoordinates(x: number, y: number, width: number, height: number) {
         this.containerElement.style.left = `${x}px`;
         this.containerElement.style.top = `${y}px`;
+        this.containerElement.style.width = `${width}px`;
+        this.containerElement.style.height = `${height}px`;
     }
 }
 
