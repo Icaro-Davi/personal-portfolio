@@ -1,5 +1,5 @@
 const handleSideEffectEventClosure = (element: HTMLElement, elementClassNameRef: string) => {
-    const events: (keyof HTMLElementEventMap)[] = ['mouseup', 'mousedown', 'mousemove', 'touchstart', 'touchend'];
+    const events: (keyof HTMLElementEventMap)[] = ['mousedown', 'touchstart', 'touchend'];
     const elements = element.querySelectorAll(elementClassNameRef);
     const stopPropagationFn = (ev: MouseEvent | TouchEvent) => {
         ev.stopPropagation();
