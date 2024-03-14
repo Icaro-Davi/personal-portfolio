@@ -1,4 +1,4 @@
-import type { OnWindowMovementEndFunc } from "./types";
+import type { OnWindowMovementEndFunc, SharedPropertiesType } from "./types";
 
 class ResizeWindow {
 
@@ -8,13 +8,19 @@ class ResizeWindow {
     private currentResizingEdge: undefined | 'leftTop' | 'left' | 'leftBottom' | 'bottom' | 'rightBottom' | 'right' | 'rightTop' | 'top';
     private marginEvent = 5;
     private intialWindowDimensions = { x: 0, y: 0, width: 0, height: 0 };
+    private sharedProperties: SharedPropertiesType;
     private minimumWindowSize = { width: 300, height: 400 };
     private edgeMarginMouseCursor = this.marginEvent;
+    private debounceIdOnWindowMovementEnd: NodeJS.Timeout | undefined;
     private onWindowMovementEnd: OnWindowMovementEndFunc | undefined;
-    private debounceId: NodeJS.Timeout | undefined;
 
-    constructor(params: { element: HTMLElement; onWindowMovementEnd?: OnWindowMovementEndFunc }) {
+    constructor(params: {
+        element: HTMLElement;
+        sharedProperties: SharedPropertiesType;
+        onWindowMovementEnd?: OnWindowMovementEndFunc;
+    }) {
         this.resizeElement = params.element;
+        this.sharedProperties = params.sharedProperties;
         this.onWindowMovementEnd = params.onWindowMovementEnd;
         this.initAssignEvents();
     }
@@ -102,7 +108,6 @@ class ResizeWindow {
     }
 
     private onMouseInteractWithResizeElement(ev: MouseEvent) {
-        ev.preventDefault();
         this.isResizing = true;
         this.intialWindowDimensions.x = ev.clientX;
         this.intialWindowDimensions.y = ev.clientY;
@@ -186,21 +191,21 @@ class ResizeWindow {
             this.resizeElement.style.width = `${width}px`;
         }
         if (height > this.minimumWindowSize.height) {
-            this.resizeElement.style.height = `${height}px`;
             this.resizeElement.style.top = `${y}px`;
+            this.resizeElement.style.height = `${height}px`;
         }
+        
+        this.sharedProperties.resizableElement.x = this.resizeElement.offsetLeft;
+        this.sharedProperties.resizableElement.y = this.resizeElement.offsetTop;
+        this.sharedProperties.resizableElement.width = this.resizeElement.offsetWidth;
+        this.sharedProperties.resizableElement.height = this.resizeElement.offsetHeight;
 
-        clearTimeout(this.debounceId);
-        this.debounceId = setTimeout((params: { x: number; y: number; width: number; height: number; }) => {
-            this.onWindowMovementEnd?.(params);
-        }, 50, {
-            x: this.resizeElement.offsetLeft,
-            y:this.resizeElement.offsetTop,
-            width: this.resizeElement.offsetWidth,
-            height: this.resizeElement.offsetHeight
-        });
+        if(this.onWindowMovementEnd){
+            clearTimeout(this.debounceIdOnWindowMovementEnd);
+            this.debounceIdOnWindowMovementEnd = setTimeout(this.onWindowMovementEnd, 50, this.sharedProperties.resizableElement);
+        }
     }
-
+    
     private onMouseUp(ev: MouseEvent) {
         this.isResizing = false;
         document.removeEventListener('mousemove', this.listenerRef[this.onResize.name]);

@@ -8,3 +8,9 @@ export type useWindowMovmentParams = {
     };
     headerThreshold?: number;
 }
+
+export type SharedPropertiesType = {
+    resizableElement: {
+        width: number; height: number; x: number; y: number;
+    }
+}
