@@ -10,16 +10,17 @@ import type { FC } from "react";
 import type { HeaderButtonsFileWindowProps } from "./types";
 
 const ICON_SIZE = 23;
-const ICON_CLASS_NAME = 'cursor-pointer text-seconday hover:text-light';
+const ICON_CLASS_NAME = 'cursor-pointer text-seconday hover:text-light px-1';
 
 const HeaderButtons: FC<HeaderButtonsFileWindowProps> = props => {
     return (
-        <div className="flex space-x-2 items-center window-movement-off">
-            <FaRegWindowMinimize
-                onClick={events.headerButtons.onClickMinimize.bind({ ...props })}
-                size={ICON_SIZE}
-                className={ICON_CLASS_NAME}
-            />
+        <div className="flex items-center window-movement-off">
+            <div className={ICON_CLASS_NAME}>
+                <FaRegWindowMinimize
+                    onClick={events.headerButtons.onClickMinimize.bind({ ...props })}
+                    size={ICON_SIZE}
+                />
+            </div>
             <div className={ICON_CLASS_NAME}>
                 {
                     props.isMaximized
@@ -37,11 +38,12 @@ const HeaderButtons: FC<HeaderButtonsFileWindowProps> = props => {
                         )
                 }
             </div>
-            <IoMdClose
-                size={ICON_SIZE + 1}
-                className="cursor-pointer text-secondary hover:text-red-600"
-                onClick={events.headerButtons.onClickClose.bind({ ...props })}
-            />
+            <div className="cursor-pointer text-secondary hover:text-red-600 px-1">
+                <IoMdClose
+                    size={ICON_SIZE + 1}
+                    onClick={events.headerButtons.onClickClose.bind({ ...props })}
+                />
+            </div>
         </div>
     );
 }
