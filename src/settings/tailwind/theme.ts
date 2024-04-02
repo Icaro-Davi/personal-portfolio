@@ -3,6 +3,9 @@ import type { Config } from 'tailwindcss'
 const theme: Pick<Config, 'theme'> = {
     theme: {
         extend: {
+            fontFamily: {
+                'roboto': ['var(--font-roboto)']
+            },
             colors: {
                 primary: '#3BFD4E',
                 secondary: '#2B2B2B',
