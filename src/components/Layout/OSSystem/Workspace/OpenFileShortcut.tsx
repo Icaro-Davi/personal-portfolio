@@ -11,6 +11,7 @@ import type { AppIconsName } from "../types";
 const OpenFileShortcut: FC<{
     title: string;
     iconName: AppIconsName;
+    fileExtension?: string;
     openWindowId: string;
     componentTarget?: ReactNode;
 }> = props => {
@@ -34,7 +35,7 @@ const OpenFileShortcut: FC<{
                 {IconFactory(props.iconName, true)}
             </div>
             <span className={className.shortcutAppTitle.toClassName()}>
-                {props.title}
+                {props.title}{props.fileExtension}
             </span>
         </a>
     );

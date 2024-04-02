@@ -9,6 +9,7 @@ const ShortcutAppIconsBar: FC = () => (
             <OpenFileShortcut
                 key={`workspace-shortcut-${index}`}
                 title={app.title}
+                fileExtension={app.fileExtension}
                 iconName={app.iconName}
                 openWindowId={app.id}
                 componentTarget={app.content}

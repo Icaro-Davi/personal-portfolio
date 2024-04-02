@@ -16,4 +16,5 @@ export type WorkspaceAppsType = {
     iconName: AppIconsName;
     id: string;
     content: ReactNode;
+    fileExtension?: string;
 }[];
