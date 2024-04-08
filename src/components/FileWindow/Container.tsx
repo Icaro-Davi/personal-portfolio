@@ -4,16 +4,16 @@ import { forwardRef, memo } from 'react';
 import type { ContainerProps } from "./types";
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>((props, ref) => (
-    <div
+    <section
         {...props}
         ref={ref}
         className={className.container.toClassName()}
     >
         {props.headerchildren}
-        <div className="p-2 text-base flex-1" >
+        <div className="text-base flex-1 overflow-hidden" >
             {props.children}
         </div>
-    </div>
-))
+    </section>
+));
 
 export default memo(Container);
