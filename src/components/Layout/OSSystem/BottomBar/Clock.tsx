@@ -21,7 +21,7 @@ const Clock: FC = () => {
 
     return (
         <div className="flex flex-col items-center justify-center h-full px-2 text-primary">
-            <div className="text-lg leading-4">
+            <div className="text-lg leading-4" suppressHydrationWarning>
                 {time}
             </div>
             <GradientDividerFromCenter />
