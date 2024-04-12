@@ -7,17 +7,17 @@ const silkscreen = Silkscreen({
     preload: true,
 });
 
-const roboto = Roboto({
-    weight: ['300', '400', '500'],
+const fileContent = Roboto({
+    weight: ['400'],
     style: 'normal',
     subsets: ['latin'],
-    variable: '--font-roboto'
+    variable: '--font-file-content'
 });
 
 const className = {
     body: new CreateTailwindStyle([
         silkscreen.className,
-        roboto.variable,
+        fileContent.variable,
         'w-dvw',
         'h-dvh',
         'flex',

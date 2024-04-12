@@ -4,7 +4,7 @@ const theme: Pick<Config, 'theme'> = {
     theme: {
         extend: {
             fontFamily: {
-                'roboto': ['var(--font-roboto)']
+                'file-content': ['var(--font-file-content)']
             },
             colors: {
                 primary: '#3BFD4E',
