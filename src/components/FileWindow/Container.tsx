@@ -10,7 +10,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>((props, ref) => (
         className={className.container.toClassName()}
     >
         {props.headerchildren}
-        <div className="text-base flex-1 overflow-hidden" >
+        <div className="text-base flex-1 overflow-hidden font-file-content" >
             {props.children}
         </div>
     </section>

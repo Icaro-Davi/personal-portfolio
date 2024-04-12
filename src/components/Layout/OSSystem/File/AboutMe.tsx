@@ -9,11 +9,11 @@ const AboutMe: FC = () => {
     const age = getActualAge(1997, 7, 15);
     return (
         <DocumentFile>
-            <h2 className="font-bold text-center text-2xl flex justify-center space-x-1 pb-2">
+            <h2 className="font-bold text-center text-3xl flex flex-wrap justify-center space-x-1 pb-2">
                 <span className="flex items-center leading-none">Olá me chamo Icaro Davi Duarte Romualdo</span>
                 <NerdFaceEmoji size={36} />
             </h2>
-            <div className="pt-4 flex flex-wrap justify-center items-center">
+            <div className="pt-4 flex flex-wrap justify-center items-center text-lg">
                 <div className="border w-[200px] h-[270px] mr-2">
 
                 </div>
@@ -31,11 +31,12 @@ const AboutMe: FC = () => {
                         Javascript e nas APIs, geralmente faço uso de NodeJS e Typescipt.
                     </p>
                 </div>
-                <p className="font-medium pt-4 text-justify">
+                <p className="font-medium pt-4 text-justify min-w-[300px]">
                     Fora toda essa parte técnica, gosto bastante de ver notícias sobre tecnologias, passo meu
                     tempo estudando, jogando jogos online com meus amigos, ou lendo/assistindo anime, mangás,
                     filmes ou séries. Se fosse para me descrever, eu me acho uma pessoa bastante concentrada,
-                    focada, fiel e companheira. Bem, ficou um pouco longo, mas agora você me conhece, muito prazer.
+                    focada, fiel e companheira. Bem, ficou um pouco longo, mas agora você conhece um pouco mais sobre mim, 
+                    muito prazer.
                 </p>
             </div>
         </DocumentFile>
