@@ -2,6 +2,7 @@ import Timeline from "./File/Timeline";
 import AboutMe from "./File/AboutMe";
 
 import { WorkspaceAppsType } from "./types";
+import Projects from "./File/Projects";
 
 const WorkspaceApps: WorkspaceAppsType = [
     {
@@ -21,7 +22,7 @@ const WorkspaceApps: WorkspaceAppsType = [
         title: 'Projetos',
         iconName: 'PROJECTS',
         id: 'projects',
-        content: 'projects'
+        content: <Projects />
     },
     {
         title: 'Educação',
