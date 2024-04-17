@@ -52,7 +52,7 @@ const ACTION: ActionFuncByType = {
         return { ...state };
     },
 
-    "maxmizeWindow": (state, action) => {
+    "maximizeWindow": (state, action) => {
         validatePayloadKeys({ action, keys: ['id', 'isMaximized'] });
 
         const _window = state.openWindows.get(action.payload.id);
@@ -102,6 +102,12 @@ const ACTION: ActionFuncByType = {
             }
             state.openWindows.set(_window.id, { ..._window, ...newState });
         }
+        return { ...state };
+    },
+
+    'screenEffectVisibility': (state, action) => {
+        validatePayloadKeys({action, keys: ['isActive']});
+        state.screenEffect.isActive = state.screenEffect.isActive;
         return { ...state };
     }
 

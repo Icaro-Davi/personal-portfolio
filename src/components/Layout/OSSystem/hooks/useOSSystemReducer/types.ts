@@ -14,13 +14,27 @@ export type WindowState = {
     height?: number;
 }
 
+export type ScreenEffectType = {
+    isActive: boolean;
+}
+
 export type InitialStateType = {
     openWindows: Map<string, WindowState>;
     windowQueue: string[];
+    screenEffect: ScreenEffectType;
 };
 
+type ActionsTypes =
+    "openWindow" |
+    "minimizeWindow" |
+    'closeWindow' |
+    'moveWindowToTop' |
+    'updateCoordinates' |
+    'maximizeWindow' |
+    'screenEffectVisibility'
+
 export type ReducerActionType = {
-    type: "openWindow" | "minimizeWindow" | 'closeWindow' | 'moveWindowToTop' | 'updateCoordinates' | 'maxmizeWindow',
+    type: ActionsTypes,
     payload?: any;
 }
 

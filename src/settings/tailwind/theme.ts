@@ -1,8 +1,10 @@
-import type { Config } from 'tailwindcss'
+import keyframes from './keyframe';
+import type { Config } from 'tailwindcss';
 
 const theme: Pick<Config, 'theme'> = {
     theme: {
         extend: {
+            keyframes,
             fontFamily: {
                 'file-content': ['var(--font-file-content)']
             },

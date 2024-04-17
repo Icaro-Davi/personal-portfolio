@@ -5,6 +5,7 @@ import BottomBar from "./BottomBar";
 import OSSystemProvider from "./hooks/useOSSystemContext/Provider";
 
 import type { FC } from "react";
+import ScreenEffect from "@/components/ScreenEffect";
 
 const OSSystem: FC = () => {
     return (
@@ -13,6 +14,7 @@ const OSSystem: FC = () => {
                 <Workspace />
                 <BottomBar />
             </div>
+            <ScreenEffect />
         </OSSystemProvider>
     );
 }
