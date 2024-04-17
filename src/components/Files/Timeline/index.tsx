@@ -16,7 +16,7 @@ type TimelineItem = {
 const TimelineFile: FC<{ timelineItems: TimelineItem[] }> = props => (
     <div className={className.container.toClassName()}>
         {props.timelineItems.map(({ items, title, description, subTitle }, index) => (
-            <div className="flex w-min-[300px] w-max-[600px]">
+            <div key={`timeline-${index}`} className="flex w-min-[300px] w-max-[600px]">
                 <div key={`timeline-item-${index}`} className={className.timelineItemContainer.toClassName()}>
                     <div className="flex">
                         <h2 className={className.title.callConditional('principal').toClassName()}>{title}</h2>
