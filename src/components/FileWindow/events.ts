@@ -2,7 +2,7 @@ import type { FileWindowElementEvents } from "./types";
 
 const events: FileWindowElementEvents = {
     headerButtons: {
-        maxmizeWindow: function (ev) {
+        maximizeWindow: function (ev) {
             ev.nativeEvent.stopImmediatePropagation(); ev.stopPropagation(); ev.preventDefault();
             this.setMaximized(true);
             this.onMaximize?.(true);

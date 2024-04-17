@@ -36,7 +36,7 @@ const events: EventsType = {
         },
         setMaximized(isMaximized) {
             this.dispatch({
-                type: 'maxmizeWindow',
+                type: 'maximizeWindow',
                 payload: { id: this.windowState.id, isMaximized }
             });
         },

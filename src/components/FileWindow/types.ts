@@ -34,7 +34,7 @@ export interface FileWindowProps extends Omit<FileWindowContainerProps, "childre
 
 export type FileWindowElementEvents = {
     headerButtons: {
-        maxmizeWindow: InnerFunctionElementEvent<SVGAElement, HeaderButtonsFileWindowProps>;
+        maximizeWindow: InnerFunctionElementEvent<SVGAElement, HeaderButtonsFileWindowProps>;
         restoreDownWindow: InnerFunctionElementEvent<SVGAElement, HeaderButtonsFileWindowProps>;
         onClickMinimize: InnerFunctionElementEvent<SVGAElement, HeaderButtonsFileWindowProps>;
         onClickClose: InnerFunctionElementEvent<SVGAElement, HeaderButtonsFileWindowProps>;

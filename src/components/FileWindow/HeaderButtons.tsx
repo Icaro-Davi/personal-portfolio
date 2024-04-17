@@ -32,7 +32,7 @@ const HeaderButtons: FC<HeaderButtonsFileWindowProps> = props => {
                         )
                         : (
                             <LuMaximize
-                                onClick={events.headerButtons.maxmizeWindow.bind({ ...props })}
+                                onClick={events.headerButtons.maximizeWindow.bind({ ...props })}
                                 size={ICON_SIZE}
                             />
                         )
