@@ -15,7 +15,12 @@ const AboutMe: FC = () => {
             </h2>
             <div className="pt-4 flex flex-wrap justify-center items-center text-lg">
                 <div className="border w-[200px] h-[270px] mr-2">
-
+                    <img
+                        title="Icaro Davi"
+                        alt="Foto do Icaro Davi"
+                        src="/icaro_picture.jpg"
+                        className="w-full h-full object-cover"
+                    />
                 </div>
                 <div className="flex-1 min-w-[300px]">
                     <p className="font-medium pt-4 text-justify">
@@ -35,7 +40,7 @@ const AboutMe: FC = () => {
                     Fora toda essa parte técnica, gosto bastante de ver notícias sobre tecnologias, passo meu
                     tempo estudando, jogando jogos online com meus amigos, ou lendo/assistindo anime, mangás,
                     filmes ou séries. Se fosse para me descrever, eu me acho uma pessoa bastante concentrada,
-                    focada, fiel e companheira. Bem, ficou um pouco longo, mas agora você conhece um pouco mais sobre mim, 
+                    focada, fiel e companheira. Bem, ficou um pouco longo, mas agora você conhece um pouco mais sobre mim,
                     muito prazer.
                 </p>
             </div>
