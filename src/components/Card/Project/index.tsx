@@ -19,7 +19,12 @@ const ProjectCard: FC<ProjectCardProps> = props => (
                     {props.title}
                 </h2>
                 <div className="flex-1 border-2 border-dashed inline-block mx-2">
-                    <img className='object-cover w-full h-full' src={props.imgSrc} alt={props.title} />
+                    <img
+                        title={props.title}
+                        alt={props.title}
+                        src={props.imgSrc}
+                        className='object-cover w-full h-full'
+                    />
                 </div>
                 <div className="flex gap-1 p-1">
                     <LinkButton href={props.codeUrl}>Código</LinkButton>
