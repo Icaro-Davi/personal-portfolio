@@ -1,15 +1,16 @@
 import Timeline from "./File/Timeline";
 import AboutMe from "./File/AboutMe";
-
-import { WorkspaceAppsType } from "./types";
 import Projects from "./File/Projects";
+import Abilities from "./File/Abilities";
+
+import type { WorkspaceAppsType } from "./types";
 
 const WorkspaceApps: WorkspaceAppsType = [
     {
         title: 'Habilidades',
         iconName: 'SKILLS',
         id: 'skills',
-        content: 'Habilidades'
+        content: <Abilities />
     },
     {
         title: 'Sobre mim',
