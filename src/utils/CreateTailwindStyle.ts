@@ -20,7 +20,7 @@ class CreateTailwindStyle<T> extends Set {
         if (conditional) {
             const tailwindRules = conditional(...args);
             if (Array.isArray(tailwindRules)) {
-                this.tempStyle = Array.from(new Set(tailwindRules)).join(' ');
+                this.tempStyle += ' ' + Array.from(new Set(tailwindRules)).join(' ');
             } else {
                 this.tempStyle += ` ${tailwindRules}`
             }
