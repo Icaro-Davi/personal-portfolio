@@ -11,7 +11,7 @@ export type HeaderButtonsFileWindowProps = {
 }
 
 export type ContainerProps = {
-    headerchildren: ReactNode;
+    headerChildren: ReactNode;
     children: ReactNode;
 } & Omit<HTMLAttributes<HTMLDivElement>, 'className'>;
 

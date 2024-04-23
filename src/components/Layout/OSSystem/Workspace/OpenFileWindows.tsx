@@ -8,10 +8,10 @@ import type { ReactNode, FC } from "react";
 
 const OpenFileWindows: FC = () => {
     const { state } = useOSSystemContext();
-    const [fileWindowList, setComponnets] = useState<{ id: string; Component: ReactNode }[]>([]);
+    const [fileWindowList, setComponents] = useState<{ id: string; Component: ReactNode }[]>([]);
 
     useEffect(() => {
-        setComponnets(oldState => {
+        setComponents(oldState => {
             return Array.from(state.openWindows).map(([windowId, _window]) => {
                 const Component = oldState.find(({ id }) => id === windowId);
                 if (Component) return Component;

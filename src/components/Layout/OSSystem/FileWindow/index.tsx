@@ -49,7 +49,7 @@ const FileWindowLayout: FC<{ windowId: string; }> = props => {
         <Container
             ref={containerRef}
             style={styles}
-            headerchildren={(
+            headerChildren={(
                 <Header
                     ref={headerRef}
                     isMaximized={windowState.isMaximized}
