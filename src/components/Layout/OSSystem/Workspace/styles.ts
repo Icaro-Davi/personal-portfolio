@@ -21,7 +21,11 @@ const className = {
         '[-webkit-line-clamp:2]',
         '[-webkit-box-orient:vertical]',
         'group-hover:[text-shadow:0_0_6px_theme(colors.primary)]',
-        'transition-all'
+        'transition-all',
+        'bg-background',
+        'p-0.5',
+        'rounded-sm',
+        'block'
     ])
 }
 

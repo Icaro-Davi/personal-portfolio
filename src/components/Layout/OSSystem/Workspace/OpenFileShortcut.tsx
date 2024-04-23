@@ -37,7 +37,9 @@ const OpenFileShortcut: FC<{
                 {IconFactory(props.iconName, true)}
             </div>
             <span className={className.shortcutAppTitle.toClassName()}>
-                <TextBorder color={colors.secondary}>{props.title}{props.fileExtension}</TextBorder>
+                <TextBorder color={colors.secondary}>
+                    {props.title}{props.fileExtension}
+                </TextBorder>
             </span>
         </a>
     );
