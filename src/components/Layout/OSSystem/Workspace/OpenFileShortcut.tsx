@@ -4,6 +4,8 @@ import { memo } from "react";
 import IconFactory from "../IconFactory";
 import className from "./styles";
 import useOSSystemContext from "../hooks/useOSSystemContext";
+import TextBorder from "@/components/TextBorder";
+import { colors } from "@/settings/tailwind/theme";
 
 import type { FC, ReactNode } from "react";
 import type { AppIconsName } from "../types";
@@ -35,7 +37,7 @@ const OpenFileShortcut: FC<{
                 {IconFactory(props.iconName, true)}
             </div>
             <span className={className.shortcutAppTitle.toClassName()}>
-                {props.title}{props.fileExtension}
+                <TextBorder color={colors.secondary}>{props.title}{props.fileExtension}</TextBorder>
             </span>
         </a>
     );
