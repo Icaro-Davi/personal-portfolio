@@ -6,6 +6,7 @@ const className = {
         'flex-col',
         'absolute',
         'bg-secondary',
+        'bg-opacity-95',
         'border-x-2',
         'border-b-2',
         'border-primary',
