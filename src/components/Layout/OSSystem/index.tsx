@@ -4,8 +4,8 @@ import Workspace from "./Workspace/Workspace";
 import BottomBar from "./BottomBar";
 import OSSystemProvider from "./hooks/useOSSystemContext/Provider";
 
+import ScreenEffect from "@/components/Layout/OSSystem/ScreenEffect";
 import type { FC } from "react";
-import ScreenEffect from "@/components/ScreenEffect";
 
 const OSSystem: FC = () => {
     return (

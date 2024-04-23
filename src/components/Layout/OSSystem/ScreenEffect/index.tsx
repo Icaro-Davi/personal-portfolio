@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import OldScreenEffect from "./OldScreen";
-import useOSSystemContext from "../Layout/OSSystem/hooks/useOSSystemContext";
+import useOSSystemContext from "../hooks/useOSSystemContext";
 
 import type { FC } from "react";
 
