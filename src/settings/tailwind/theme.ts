@@ -1,4 +1,3 @@
-import keyframes from './keyframe';
 import type { Config } from 'tailwindcss';
 
 export const colors = {
@@ -11,7 +10,6 @@ export const colors = {
 const theme: Pick<Config, 'theme'> = {
     theme: {
         extend: {
-            keyframes,
             fontFamily: {
                 'file-content': ['var(--font-file-content)']
             },
