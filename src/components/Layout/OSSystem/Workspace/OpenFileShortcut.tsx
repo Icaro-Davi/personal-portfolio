@@ -5,6 +5,7 @@ import IconFactory from "../IconFactory";
 import className from "./styles";
 import useOSSystemContext from "../hooks/useOSSystemContext";
 import TextBorder from "@/components/TextBorder";
+import GlitchText from "@/components/Glitch/Text";
 import { colors } from "@/settings/tailwind/theme";
 
 import type { FC, ReactNode } from "react";
@@ -38,7 +39,9 @@ const OpenFileShortcut: FC<{
             </div>
             <span className={className.shortcutAppTitle.toClassName()}>
                 <TextBorder color={colors.secondary}>
-                    {props.title}{props.fileExtension}
+                    <GlitchText>
+                        {props.title}{props.fileExtension}
+                    </GlitchText>
                 </TextBorder>
             </span>
         </a>

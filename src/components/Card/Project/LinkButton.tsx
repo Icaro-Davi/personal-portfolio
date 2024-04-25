@@ -1,4 +1,5 @@
 import className from "./styled";
+import GlitchText from '@/components/Glitch/Text';
 
 import type { FC, ReactNode } from "react";
 
@@ -11,7 +12,9 @@ const LinkButton: FC<{ children?: ReactNode; href?: string; }> = props => (
                 .callConditional('disabled', !props.href)
                 .toClassName()
         }
-    >{props.children}</a>
+    >
+        {props.href ? <GlitchText>{props.children}</GlitchText> : props.children}
+    </a>
 )
 
 export default LinkButton;

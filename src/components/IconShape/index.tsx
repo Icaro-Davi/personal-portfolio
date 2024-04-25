@@ -1,3 +1,4 @@
+import GlitchText from '@/components/Glitch/Text';
 import type { FC } from "react";
 import type { IconType } from "react-icons";
 
@@ -13,7 +14,9 @@ const IconShape: FC<IconShapeType> = ({ icon: Icon, title, href }) => (
             <Icon className="w-full h-full scale-110" />
         </div>
         <div className="border-t-2 border-secondary">
-            <span className="font-bold w-full">{title}</span>
+            <span className="font-bold w-full">
+                <GlitchText>{title}</GlitchText>
+            </span>
         </div>
     </a>
 );

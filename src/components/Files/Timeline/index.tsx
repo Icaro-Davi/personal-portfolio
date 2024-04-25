@@ -1,4 +1,5 @@
 import { memo } from "react";
+import GlitchText from '@/components/Glitch/Text';
 import className from "./styles";
 
 import type { FC } from "react";
@@ -26,7 +27,7 @@ const TimelineFile: FC<{ timelineItems: TimelineItem[] }> = props => (
                             <div className="flex">
                                 <p className={className.listItem.toClassName('mb-2')}>{description}</p>
                             </div>
-                        )}{ subTitle &&(
+                        )}{subTitle && (
                             <div className="inline-block">
                                 <h3 className={className.title.callConditional('subTitle').toClassName(className.listItem)}>{subTitle}</h3>
                             </div>
@@ -38,7 +39,7 @@ const TimelineFile: FC<{ timelineItems: TimelineItem[] }> = props => (
                                         className={className.listItem.callConditional('add-dot').toClassName()}
                                         target="blank"
                                         href={sendTo ?? ''}>
-                                        {title}
+                                        {sendTo ? <GlitchText>{title}</GlitchText> : title}
                                     </a>
                                 </li>
                             ))}

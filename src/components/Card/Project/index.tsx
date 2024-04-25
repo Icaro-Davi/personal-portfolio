@@ -27,8 +27,12 @@ const ProjectCard: FC<ProjectCardProps> = props => (
                     />
                 </div>
                 <div className="flex gap-1 p-1">
-                    <LinkButton href={props.codeUrl}>Código</LinkButton>
-                    <LinkButton href={props.projectUrl}>Projeto</LinkButton>
+                    <LinkButton href={props.codeUrl}>
+                        Código
+                    </LinkButton>
+                    <LinkButton href={props.projectUrl}>
+                        Projeto
+                    </LinkButton>
                 </div>
             </div>
         </div>
