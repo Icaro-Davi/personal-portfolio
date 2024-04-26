@@ -1,20 +1,20 @@
 'use client';
 
-import Workspace from "./Workspace/Workspace";
-import BottomBar from "./BottomBar";
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import OSSystemProvider from "./hooks/useOSSystemContext/Provider";
 
-import ScreenEffect from "@/components/Layout/OSSystem/ScreenEffect";
+const Screen = dynamic(() => import("./Screen"), { ssr: false, loading: () => <Loading /> });
+
 import type { FC } from "react";
+import Loading from "./loading";
 
 const OSSystem: FC = () => {
     return (
         <OSSystemProvider>
-            <div className="flex flex-1 flex-col">
-                <Workspace />
-                <BottomBar />
-            </div>
-            <ScreenEffect />
+            <Suspense fallback={<Loading />}>
+                <Screen />
+            </Suspense>
         </OSSystemProvider>
     );
 }
