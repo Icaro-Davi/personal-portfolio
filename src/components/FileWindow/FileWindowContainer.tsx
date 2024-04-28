@@ -5,7 +5,7 @@ import type { FileWindowContainerProps } from "./types";
 
 const FileWindowContainer: FC<FileWindowContainerProps & { setMaximized: (isMaximized: boolean) => void}> = ({ children, ...props }) => {
     return (
-        <Container headerchildren={<Header {...props} />}>
+        <Container headerChildren={<Header {...props} />}>
             {children}
         </Container>
     );

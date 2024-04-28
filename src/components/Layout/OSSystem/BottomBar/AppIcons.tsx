@@ -47,8 +47,10 @@ export const AppIconWrapper: FC<AppIconWrapperProps> = props => {
 const AppIcons = (icons: AppIcons): ReactNode[] => {
     return icons.map(({ name, window: _window }) => {
         let Icon = IconFactory(name);
+        const iconId = Math.random().toString(32).slice(-7);
         return (
             <AppIconWrapper
+                key={`app-icons-${iconId}`}
                 windowInFocus={_window.focus}
                 windowId={_window.id}
                 windowTitle={_window.title}

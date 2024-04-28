@@ -18,13 +18,14 @@ const OpenFileWindows: FC = () => {
                 return { id: windowId, Component: (<FileWindow key={windowId} windowId={windowId} />) };
             });
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.openWindows.size]);
 
     const Components = state.windowQueue.reduce((prev, current) => {
         prev.push(fileWindowList.find(({ id }) => id === current)?.Component);
         return prev;
     }, [] as ReactNode[]);
-    
+
     return (
         <div className="flex w-full h-full absolute justify-center items-center">
             {Components}

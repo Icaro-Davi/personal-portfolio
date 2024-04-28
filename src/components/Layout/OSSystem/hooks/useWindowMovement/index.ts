@@ -1,9 +1,9 @@
 import { RefObject, useEffect, useRef } from "react";
 import WindowMovement from "./WindowMovement";
 
-import type { useWindowMovmentParams } from "./types";
+import type { useWindowMovementParams } from "./types";
 
-function useWindowMovement<C extends HTMLElement, H extends HTMLElement>(params?: useWindowMovmentParams): [RefObject<C>, RefObject<H>] {
+function useWindowMovement<C extends HTMLElement, H extends HTMLElement>(params?: useWindowMovementParams): [RefObject<C>, RefObject<H>] {
     const containerRef = useRef<C>(null);
     const headerRef = useRef<H>(null);
     const windowMovement = useRef<WindowMovement>();
@@ -23,6 +23,7 @@ function useWindowMovement<C extends HTMLElement, H extends HTMLElement>(params?
             windowMovement.current?.destroy();
             windowMovement.current = undefined;
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [containerRef, headerRef]);
 
 return [containerRef, headerRef];

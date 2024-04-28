@@ -1,4 +1,5 @@
 import { memo } from "react";
+import Image from 'next/image';
 import className from "./styled";
 import LinkButton from "./LinkButton";
 
@@ -18,12 +19,13 @@ const ProjectCard: FC<ProjectCardProps> = props => (
                 <h2 className="text-center text-b py-1 font-bold">
                     {props.title}
                 </h2>
-                <div className="flex-1 border-2 border-dashed inline-block mx-2">
-                    <img
+                <div className="flex-1 border-2 border-dashed inline-block mx-2 relative">
+                    <Image
                         title={props.title}
                         alt={props.title}
                         src={props.imgSrc}
                         className='object-cover w-full h-full'
+                        fill={true}
                     />
                 </div>
                 <div className="flex gap-1 p-1">

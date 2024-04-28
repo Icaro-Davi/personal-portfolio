@@ -1,4 +1,4 @@
-const getActualAge = (year: number, month: number, day: number) => {
+const GetCurrentAge = (year: number, month: number, day: number) => {
     const dateNow = new Date();
     const dateBorn = new Date(year, month, day);
 
@@ -8,4 +8,4 @@ const getActualAge = (year: number, month: number, day: number) => {
     return age;
 }
 
-export default getActualAge;
+export default GetCurrentAge;

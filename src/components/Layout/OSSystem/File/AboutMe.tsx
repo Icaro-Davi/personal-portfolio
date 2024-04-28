@@ -1,12 +1,13 @@
+import Image from "next/image";
 import { memo } from "react";
 import NerdFaceEmoji from "@/components/Sticks/NerdFace";
 import DocumentFile from "@/components/Files/Document";
+import GetCurrentAge from "@/utils/GetCurrentAge";
 
 import type { FC } from "react";
-import getActualAge from "@/utils/GetCurretAge";
 
 const AboutMe: FC = () => {
-    const age = getActualAge(1997, 7, 15);
+    const age = GetCurrentAge(1997, 7, 15);
     return (
         <DocumentFile>
             <h2 className="font-bold text-center text-3xl flex flex-wrap justify-center space-x-1 pb-2">
@@ -14,12 +15,13 @@ const AboutMe: FC = () => {
                 <NerdFaceEmoji size={36} />
             </h2>
             <div className="pt-4 flex flex-wrap justify-center items-center text-lg">
-                <div className="border w-[200px] h-[270px] mr-2">
-                    <img
+                <div className="border w-[200px] h-[270px] mr-2 relative">
+                    <Image
                         title="Icaro Davi"
                         alt="Foto do Icaro Davi"
                         src="/icaro_picture.jpg"
                         className="w-full h-full object-cover"
+                        fill={true}
                     />
                 </div>
                 <div className="flex-1 min-w-[300px]">
