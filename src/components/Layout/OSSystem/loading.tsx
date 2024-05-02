@@ -7,7 +7,7 @@ const Loading: FC = () => (
     <div className='flex items-center justify-center bg-background w-full h-full z-50'>
         <h1 className='text-white font-bold text-4xl max-sm:text-xl'>
             <GlitchText>
-                Portfolio.sys loading
+                Coffee.sys loading
             </GlitchText>
         </h1>
         <ScreenEffect />
