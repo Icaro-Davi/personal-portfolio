@@ -2,6 +2,7 @@ import CreateTailwindStyle from "@/utils/CreateTailwindStyle";
 
 const className = {
     appIconWrapperStyle: new CreateTailwindStyle<'focus'>([
+        'inline-block',
         'h-11',
         'w-11',
         'border-solid',

@@ -2,7 +2,6 @@ import CreateTailwindStyle from "@/utils/CreateTailwindStyle";
 
 const className = {
     container: new CreateTailwindStyle([
-        'overflow-auto',
         'p-2',
         'text-primary',
         'text-white',

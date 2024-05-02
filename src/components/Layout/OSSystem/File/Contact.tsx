@@ -6,8 +6,8 @@ import type { FC } from "react";
 
 const Contact: FC = () => (
 
-    <div className="p-2 h-full flex justify-center items-center">
-        <div>
+    <div className="p-2 h-full flex overflow-auto">
+        <div className='m-auto'>
             <ContactMailForm mailto="icarodaviduarte@gmail.com" />
             <div className="flex flex-wrap justify-center gap-2 mt-2">
                 <IconShape

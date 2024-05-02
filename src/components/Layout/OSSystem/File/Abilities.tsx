@@ -13,9 +13,8 @@ import type { FC } from "react";
 import TextBorder from '@/components/TextBorder';
 
 const Abilities: FC = () => (
-    <div className='w-full h-full p-2 flex items-center justify-center'>
-
-        <div className='text-center'>
+    <div className='w-full h-full p-2 flex overflow-auto'>
+        <div className='text-center m-auto'>
             <h2 className='pb-2 text-lg text-background font-bold'>
                 <TextBorder>Tecnologias</TextBorder>
             </h2>

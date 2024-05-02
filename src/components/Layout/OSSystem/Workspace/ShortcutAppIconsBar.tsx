@@ -4,7 +4,7 @@ import WorkspaceApps from "../WorkspaceApps";
 import type { FC } from "react";
 
 const ShortcutAppIconsBar: FC = () => (
-    <nav className="text-primary relative z-10 p-2 flex justify-self-start flex-col">
+    <nav className="text-primary relative z-10 p-2 flex justify-self-start flex-col flex-wrap">
         {WorkspaceApps.map((app, index) => (
             <OpenFileShortcut
                 key={`workspace-shortcut-${index}`}
