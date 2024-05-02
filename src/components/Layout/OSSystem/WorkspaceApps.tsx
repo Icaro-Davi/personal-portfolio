@@ -2,6 +2,7 @@ import Timeline from "./File/Timeline";
 import AboutMe from "./File/AboutMe";
 import Projects from "./File/Projects";
 import Abilities from "./File/Abilities";
+import Contact from "./File/Contact";
 
 import type { WorkspaceAppsType } from "./types";
 
@@ -37,7 +38,7 @@ const WorkspaceApps: WorkspaceAppsType = [
         fileExtension: '.exe',
         iconName: 'CONTACT',
         id: 'contact',
-        content: 'contato'
+        content: <Contact />
     }
 ]
 
