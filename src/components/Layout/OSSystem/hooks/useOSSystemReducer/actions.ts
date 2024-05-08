@@ -107,7 +107,19 @@ const ACTION: ActionFuncByType = {
 
     'screenEffectVisibility': (state, action) => {
         validatePayloadKeys({action, keys: ['isActive']});
-        state.screenEffect.isActive = state.screenEffect.isActive;
+        state.screenEffect.isActive = action.payload.isActive;
+        return { ...state };
+    },
+
+    'wallpaperVisibility': (state, action) => {
+        validatePayloadKeys({ action, keys: ['isActive']});
+        state.wallpaper.isActive = action.payload.isActive;
+        return { ...state };
+    },
+
+    'bottomBarVisibility': (state, action) => {
+        validatePayloadKeys({ action, keys: ['isActive'] });
+        state.bottomBar.isActive = action.payload.isActive;
         return { ...state };
     }
 

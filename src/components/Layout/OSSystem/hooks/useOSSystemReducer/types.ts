@@ -18,10 +18,20 @@ export type ScreenEffectType = {
     isActive: boolean;
 }
 
+export type WallpaperType = {
+    isActive: boolean;
+}
+
+export type BottomBarType = {
+    isActive: boolean;
+}
+
 export type InitialStateType = {
     openWindows: Map<string, WindowState>;
     windowQueue: string[];
     screenEffect: ScreenEffectType;
+    wallpaper: WallpaperType;
+    bottomBar: BottomBarType;
 };
 
 type ActionsTypes =
@@ -31,7 +41,9 @@ type ActionsTypes =
     'moveWindowToTop' |
     'updateCoordinates' |
     'maximizeWindow' |
-    'screenEffectVisibility'
+    'screenEffectVisibility' |
+    'wallpaperVisibility' |
+    'bottomBarVisibility'
 
 export type ReducerActionType = {
     type: ActionsTypes,
