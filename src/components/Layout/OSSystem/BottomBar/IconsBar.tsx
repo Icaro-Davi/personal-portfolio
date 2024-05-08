@@ -8,7 +8,7 @@ import useOSSystemContext from "../hooks/useOSSystemContext";
 import type { FC } from "react";
 
 const IconsBar: FC = () => {
-    const { state } = useOSSystemContext();
+    const { state, dispatch } = useOSSystemContext();
     const iconsDivRef = useRef<HTMLDivElement>(null);
 
     const openWindowsReferences = Array.from(state.openWindows).map(([_, _window]) => ({
@@ -20,8 +20,12 @@ const IconsBar: FC = () => {
         }
     }));
 
-    const IconOS = useMemo(() => AppIcons([{ name: 'COFFEE', window: { focus: false, title: 'Coffee OS' } }]), []);
     const Icons = useMemo(() => AppIcons(openWindowsReferences), [openWindowsReferences]);
+    const IconOS = useMemo(() => AppIcons([{
+        name: 'COFFEE',
+        window: { focus: false, title: 'Coffee OS' },
+        onClick: () => dispatch({ type: 'bottomBarVisibility', payload: { isActive: !state.bottomBar.isActive } })
+    }]), [dispatch, state.bottomBar.isActive]);
 
     const getMaxWidthToIconsBar = () => `${window.outerWidth - 148}px`;
 
