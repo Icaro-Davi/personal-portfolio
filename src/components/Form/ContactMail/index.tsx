@@ -9,7 +9,7 @@ type ContactMailProps = {
 
 const ContactMailForm: FC<ContactMailProps> = (props) => {
     return (
-        <form method="POST" action={`mailto:${props.mailto}`} encType="text/plain" className="max-w-96 m-auto">
+        <form method="POST" action={`mailto:${props.mailto}`} encType="text/plain" className="m-auto">
             <Input
                 name="name"
                 type='text'
