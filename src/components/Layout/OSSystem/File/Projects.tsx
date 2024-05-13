@@ -9,6 +9,17 @@ const projects = [
         projectUrl: 'https://pokecard-icaro-davi.vercel.app/',
         codeUrl: 'https://github.com/Icaro-Davi/pokecard'
     },
+    {
+        title: 'Marvel Comics',
+        imgSrc: 'https://raw.githubusercontent.com/Icaro-Davi/marvel-comics/main/public/svg/marvel.svg',
+        projectUrl: 'https://marvel-comics-omega.vercel.app',
+        codeUrl: 'https://github.com/Icaro-Davi/marvel-comics'
+    },
+    {
+        title: 'Coffee OS',
+        imgSrc: '/coffee_os.png',
+        codeUrl: 'https://github.com/Icaro-Davi/personal-portfolio'
+    }
 ]
 
 const Projects: FC = props => (

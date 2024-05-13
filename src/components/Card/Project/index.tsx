@@ -24,7 +24,7 @@ const ProjectCard: FC<ProjectCardProps> = props => (
                         title={props.title}
                         alt={props.title}
                         src={props.imgSrc}
-                        className='object-cover w-full h-full'
+                        className='object-contain w-full h-full'
                         fill={true}
                     />
                 </div>
