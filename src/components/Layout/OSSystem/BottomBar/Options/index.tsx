@@ -24,13 +24,13 @@ const BottomBarOptions: FC = () => {
             iconActive: state.screenEffect.isActive,
             title: 'Efeito de tela'
         },
-    ], [state.wallpaper.isActive, state.screenEffect.isActive]);
+    ], [state.wallpaper.isActive, state.screenEffect.isActive, dispatch]);
 
     useEffect(() => {
         if (divRef.current) {
             divRef.current.focus();
         }
-    }, [divRef.current]);
+    }, [divRef]);
 
     return (
         <div

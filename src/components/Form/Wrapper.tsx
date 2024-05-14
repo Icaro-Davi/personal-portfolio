@@ -27,4 +27,6 @@ const Wrapper: FC<InputProps> = memo(
     }
 );
 
+Wrapper.displayName = Wrapper.name;
+
 export default Wrapper;

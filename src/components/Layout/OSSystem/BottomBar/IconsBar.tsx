@@ -40,7 +40,7 @@ const IconsBar: FC = () => {
         return () => {
             window.removeEventListener('resize', onWindowResize);
         }
-    }, []);
+    }, [onWindowResize]);
 
     return (
         <nav className="flex flex-row">
