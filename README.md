@@ -25,12 +25,9 @@ npm run dev
 ```
 4- now you can open in http://localhost:3000
 
-<div style="display:flex;flex-flow:column;align-items:start;gap:.25rem">
-    <img src="/screenshots/01.png" alt="Screenshot Desktop 01" width="300"/>
-    <img src="/screenshots/02.png" alt="Screenshot Desktop 02" width="300"/>
-    <img src="/screenshots/03.png" alt="Screenshot mobile 01" height="300"/>
- </div>
-
+<img src="/screenshots/03.png" alt="Screenshot mobile 01" height="300"/>
+<img src="/screenshots/01.png" alt="Screenshot Desktop 01" height="300"/>
+<img src="/screenshots/02.png" alt="Screenshot Desktop 02" height="300"/>
 
 ### License
 
