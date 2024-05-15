@@ -2,7 +2,7 @@ import OSSystem from "@/components/Layout/OSSystem";
 import type { Metadata } from "next";
 
 const title = "Icaro Davi Dev | Portfólio";
-const description = "Olá meu nome é Icaro Davi e esté é o meu portifólio, entre e descubra mais sobre mim.";
+const description = "Olá meu nome é Icaro Davi e esté é o meu portfólio, entre e descubra mais sobre mim.";
 export const metadata: Metadata = {
   title, description,
   creator: 'Icaro Davi Duarte Romualdo',
