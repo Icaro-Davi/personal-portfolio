@@ -7,16 +7,17 @@ import {
     BiLogoTailwindCss,
     BiLogoSass, BiLogoJava
 } from 'react-icons/bi';
+import { SiNginx, SiAntdesign, SiExpress, SiDiscord } from "react-icons/si";
+import { TbBrandNextjs } from "react-icons/tb";
 import IconShape from "@/components/IconShape";
 
 import type { FC } from "react";
-import TextBorder from '@/components/TextBorder';
 
 const Abilities: FC = () => (
     <div className='w-full h-full p-2 flex overflow-auto'>
         <div className='text-center m-auto'>
-            <h2 className='pb-2 text-lg text-background font-bold'>
-                <TextBorder>Tecnologias</TextBorder>
+            <h2 className='pb-2 text-lg text-primary font-bold'>
+                Minhas Habilidades
             </h2>
             <div className='flex flex-wrap gap-2 justify-center'>
                 <IconShape
@@ -83,6 +84,31 @@ const Abilities: FC = () => (
                     title="Java"
                     href="https://www.java.com/"
                     icon={BiLogoJava}
+                />
+                <IconShape
+                    title="Nginx"
+                    href="https://nginx.org/en/"
+                    icon={SiNginx}
+                />
+                <IconShape
+                    title="Ant Design"
+                    href="https://ant.design/"
+                    icon={SiAntdesign}
+                />
+                <IconShape
+                    title="NextJS"
+                    href="https://nextjs.org/"
+                    icon={TbBrandNextjs}
+                />
+                <IconShape
+                    title="ExpressJS"
+                    href="https://expressjs.com/"
+                    icon={SiExpress}
+                />
+                <IconShape
+                    title="DiscordJS"
+                    href="https://discord.js.org/"
+                    icon={SiDiscord}
                 />
             </div>
         </div>
