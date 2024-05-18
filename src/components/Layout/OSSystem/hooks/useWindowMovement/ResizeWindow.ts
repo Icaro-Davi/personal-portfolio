@@ -7,7 +7,7 @@ class ResizeWindow {
     private isResizing = false;
     private currentResizingEdge: undefined | 'leftTop' | 'left' | 'leftBottom' | 'bottom' | 'rightBottom' | 'right' | 'rightTop' | 'top';
     private marginEvent = 5;
-    private intialWindowDimensions = { x: 0, y: 0, width: 0, height: 0 };
+    private initialWindowDimensions = { x: 0, y: 0, width: 0, height: 0 };
     private sharedProperties: SharedPropertiesType;
     private minimumWindowSize = { width: 300, height: 400 };
     private edgeMarginMouseCursor = this.marginEvent;
@@ -109,10 +109,10 @@ class ResizeWindow {
 
     private onMouseInteractWithResizeElement(ev: MouseEvent) {
         this.isResizing = true;
-        this.intialWindowDimensions.x = ev.clientX;
-        this.intialWindowDimensions.y = ev.clientY;
-        this.intialWindowDimensions.width = this.resizeElement.offsetWidth;
-        this.intialWindowDimensions.height = this.resizeElement.offsetHeight;
+        this.initialWindowDimensions.x = ev.clientX;
+        this.initialWindowDimensions.y = ev.clientY;
+        this.initialWindowDimensions.width = this.resizeElement.offsetWidth;
+        this.initialWindowDimensions.height = this.resizeElement.offsetHeight;
         document.addEventListener('mousemove', this.listenerRef[this.onResize.name]);
         document.addEventListener('mouseup', this.listenerRef[this.onMouseUp.name]);
     }
@@ -126,63 +126,64 @@ class ResizeWindow {
     private calculateWindowSize:
         {
             [key in NonNullable<typeof this.currentResizingEdge>]: (distanceX: number, distanceY: number) => (
-                NonNullable<Partial<typeof this.intialWindowDimensions>>
+                NonNullable<Partial<typeof this.initialWindowDimensions>>
             );
         } = {
             left: (dx, dy) => ({
-                x: (this.intialWindowDimensions.x + dx),
+                x: (this.initialWindowDimensions.x + dx),
                 y: this.resizeElement.offsetTop,
-                width: (this.intialWindowDimensions.width - dx)
+                width: (this.initialWindowDimensions.width - dx)
             }),
             right: (dx, dy) => ({
-                width: (this.intialWindowDimensions.width + dx),
+                width: (this.initialWindowDimensions.width + dx),
                 x: this.resizeElement.offsetLeft,
                 y: this.resizeElement.offsetTop
             }),
             bottom: (dx, dy) => ({
-                height: (this.intialWindowDimensions.height + dy),
+                height: (this.initialWindowDimensions.height + dy),
                 x: this.resizeElement.offsetLeft,
                 y: this.resizeElement.offsetTop
             }),
             top: (dx, dy) => ({
-                height: (this.intialWindowDimensions.height - dy),
+                height: (this.initialWindowDimensions.height - dy),
                 x: this.resizeElement.offsetLeft,
-                y: (this.intialWindowDimensions.y + dy)
+                y: (this.initialWindowDimensions.y + dy)
             }),
             leftTop: (dx, dy) => ({
-                width: (this.intialWindowDimensions.width - dx),
-                height: (this.intialWindowDimensions.height - dy),
-                x: (this.intialWindowDimensions.x + dx),
-                y: (this.intialWindowDimensions.y + dy)
+                width: (this.initialWindowDimensions.width - dx),
+                height: (this.initialWindowDimensions.height - dy),
+                x: (this.initialWindowDimensions.x + dx),
+                y: (this.initialWindowDimensions.y + dy)
             }),
             leftBottom: (dx, dy) => ({
-                width: (this.intialWindowDimensions.width - dx),
-                height: (this.intialWindowDimensions.height + dy),
-                x: (this.intialWindowDimensions.x + dx + 1),
+                width: (this.initialWindowDimensions.width - dx),
+                height: (this.initialWindowDimensions.height + dy),
+                x: (this.initialWindowDimensions.x + dx + 1),
                 y: this.resizeElement.offsetTop
             }),
             rightTop: (dx, dy) => ({
-                width: (this.intialWindowDimensions.width + dx),
-                height: (this.intialWindowDimensions.height - dy),
+                width: (this.initialWindowDimensions.width + dx),
+                height: (this.initialWindowDimensions.height - dy),
                 x: this.resizeElement.offsetLeft,
-                y: (this.intialWindowDimensions.y + dy + 1)
+                y: (this.initialWindowDimensions.y + dy + 1)
             }),
             rightBottom: (dx, dy) => ({
-                width: (this.intialWindowDimensions.width + dx),
-                height: (this.intialWindowDimensions.height + dy),
+                width: (this.initialWindowDimensions.width + dx),
+                height: (this.initialWindowDimensions.height + dy),
                 x: this.resizeElement.offsetLeft,
                 y: this.resizeElement.offsetTop
             })
         }
 
     private onResize(ev: MouseEvent) {
+        ev.preventDefault();
         if (!this.currentResizingEdge) return;
 
         const calculateWindowSizeFunc = this.calculateWindowSize[this.currentResizingEdge];
-        const mouseInnerPositionX = ev.clientX - this.intialWindowDimensions.x;
-        const mouseInnerPositionY = ev.clientY - this.intialWindowDimensions.y;
+        const mouseInnerPositionX = ev.clientX - this.initialWindowDimensions.x;
+        const mouseInnerPositionY = ev.clientY - this.initialWindowDimensions.y;
         const { x, y, width, height } = {
-            ...this.intialWindowDimensions,
+            ...this.initialWindowDimensions,
             ...calculateWindowSizeFunc(mouseInnerPositionX, mouseInnerPositionY)
         };
 
