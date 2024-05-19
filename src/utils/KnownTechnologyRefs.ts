@@ -7,7 +7,7 @@ import {
     BiLogoTailwindCss,
     BiLogoSass, BiLogoJava
 } from 'react-icons/bi';
-import { SiNginx, SiAntdesign, SiExpress, SiDiscord } from "react-icons/si";
+import { SiNginx, SiAntdesign, SiExpress, SiDiscord, SiRedis, SiStyledcomponents } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 import type { IconType } from "react-icons";
 
@@ -53,6 +53,11 @@ const KnownTechnologyRefs: KnownTechnologyRefType[] = [
         name: "TailwindCSS",
         href: "https://tailwindcss.com/",
         icon: BiLogoTailwindCss
+    },
+    {
+        name: "Styled Components",
+        href: "https://styled-components.com/",
+        icon: SiStyledcomponents
     },
     {
         name: "SASS",
@@ -104,6 +109,11 @@ const KnownTechnologyRefs: KnownTechnologyRefType[] = [
         href: "https://discord.js.org/",
         icon: SiDiscord
     },
+    {
+        name: 'Redis',
+        href: 'https://redis.io/docs/latest/',
+        icon: SiRedis
+    }
 ]
 
 export default {
