@@ -10,9 +10,9 @@ import type { IconType } from "react-icons";
 
 const ICON_SIZE = 23;
 
-const Button: FC<{ icon: IconType } & ButtonHTMLAttributes<HTMLButtonElement>> = ({ icon: Icon, ...props }) => {
+const Button: FC<{ icon: IconType } & ButtonHTMLAttributes<HTMLButtonElement>> = ({ icon: Icon, className, ...props }) => {
     return (
-        <button className='cursor-pointer text-secondary hover:text-light px-1'  {...props}>
+        <button className={`cursor-pointer text-secondary hover:text-light px-1 ${className}`}  {...props}>
             <Icon size={ICON_SIZE} />
         </button>
     )
@@ -41,6 +41,7 @@ const HeaderButtons: FC<HeaderButtonsFileWindowProps> = props => {
                     )
             }
             <Button
+                className="hover:text-red-500"
                 icon={IoMdClose}
                 onClick={events.headerButtons.onClickClose.bind({ ...props })}
             />
