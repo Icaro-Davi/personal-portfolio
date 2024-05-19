@@ -116,7 +116,7 @@ const KnownTechnologyRefs: KnownTechnologyRefType[] = [
     }
 ]
 
-export default {
+const KnownTechnologies = {
     technologies: KnownTechnologyRefs,
     get: function (...params: string[]) {
         return params.reduce((prev, current) => {
@@ -126,3 +126,5 @@ export default {
         }, [] as KnownTechnologyRefType[]);
     }
 };
+
+export default KnownTechnologies;

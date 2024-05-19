@@ -57,8 +57,8 @@ const Projects: FC = props => (
     <div style={{ ...({'--items-length': maxRows} as CSSProperties) }} className='flex h-full overflow-auto'>
         <div className='m-auto p-2 max-w-[calc(theme(spacing.56)*var(--items-length))] columns-[var(--items-length)_theme(spacing.52)] [column-gap:theme(spacing.2)] space-y-2 text-center'>
             {projects.map((project, index) => (
-                <div>
-                    <ProjectCard key={`project-card-${index}`} {...project} />
+                <div key={`project-card-${index}`}>
+                    <ProjectCard  {...project} />
                 </div>
             ))}
         </div>
