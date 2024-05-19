@@ -5,6 +5,13 @@ import type { CSSProperties, FC } from "react";
 
 const projects = [
     {
+        title: 'Immersive squares',
+        imgSrc: '/immersive_squares.png',
+        projectUrl: 'https://codepen.io/Idate/full/OJrXqqR',
+        codeUrl: 'https://codepen.io/Idate/pen/OJrXqqR',
+        tags: KnownTechnologyRefs.get('CSS', 'Javascript')
+    },
+    {
         title: 'Pokecard',
         imgSrc: 'https://raw.githubusercontent.com/Icaro-Davi/pokecard/main/src/app/favicon.ico',
         projectUrl: 'https://pokecard-icaro-davi.vercel.app/',
@@ -23,6 +30,24 @@ const projects = [
         imgSrc: '/coffee_os.png',
         codeUrl: 'https://github.com/Icaro-Davi/personal-portfolio',
         tags: KnownTechnologyRefs.get('Tailwind', 'Typescript', 'React', 'NextJS')
+    },
+    {
+        title: 'Poing (Discord Bot)',
+        imgSrc: '/poing.webp',
+        codeUrl: 'https://github.com/Icaro-Davi/Poing',
+        tags: KnownTechnologyRefs.get('NodeJS', 'DiscordJS', 'MongoDB', 'Typescript')
+    },
+    {
+        title: 'Poing (Web)',
+        imgSrc: '/poing.webp',
+        codeUrl: 'https://github.com/Icaro-Davi/poing-web',
+        tags: KnownTechnologyRefs.get('NodeJS', 'NextJS', 'Typescript', 'Styled COmponents')
+    },
+    {
+        title: 'Poing (API)',
+        imgSrc: '/poing.webp',
+        codeUrl: 'https://github.com/Icaro-Davi/poing-web',
+        tags: KnownTechnologyRefs.get('NodeJS', 'ExpressJS', 'Typescript', 'MongoDB', 'Redis')
     },
 ];
 
