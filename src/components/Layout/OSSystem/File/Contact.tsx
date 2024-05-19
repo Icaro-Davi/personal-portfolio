@@ -1,12 +1,16 @@
-import { IoLogoInstagram, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
+import { IoLogoGithub, IoLogoWhatsapp } from 'react-icons/io5';
 import GlitchLink from '@/components/Glitch/Link';
 import ContactMailForm from "@/components/Form/ContactMail";
 import IconShape from "@/components/IconShape";
 
 import type { FC } from "react";
+import { IoLogoLinkedin } from 'react-icons/io';
+
+const whatsappEndpoint = new URL("https://api.whatsapp.com/send");
+whatsappEndpoint.searchParams.append('phone', '5588996212821');
+whatsappEndpoint.searchParams.append('text', 'Olá Cheguei através do seu portfolio, vamos conversar!');
 
 const Contact: FC = () => (
-
     <div className="p-2 h-full flex overflow-auto">
         <div className='m-auto max-w-96'>
             <h2 className='text-primary pb-2 text-center font-bold'>
@@ -15,9 +19,9 @@ const Contact: FC = () => (
             <ContactMailForm mailto="icarodaviduarte@gmail.com" />
             <div className="flex flex-wrap justify-center gap-2 mt-2">
                 <IconShape
-                    icon={IoLogoInstagram}
-                    title='Instagram'
-                    href='https://instagram.com/icaro_davi_'
+                    icon={IoLogoWhatsapp}
+                    title='Whatsapp'
+                    href={whatsappEndpoint.href}
                 />
                 <IconShape
                     icon={IoLogoGithub}
