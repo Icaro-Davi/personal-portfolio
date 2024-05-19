@@ -3,8 +3,8 @@ import type { InnerFunctionElementEvent } from "../types";
 import type { OnWindowMovementEndFunc } from "../Layout/OSSystem/hooks/useWindowMovement/types";
 
 export type HeaderButtonsFileWindowProps = {
-    onClickClose?: DOMAttributes<SVGAElement>['onClick'];
-    onClickMinimize?: DOMAttributes<SVGAElement>['onClick'];
+    onClickClose?: DOMAttributes<HTMLButtonElement>['onClick'];
+    onClickMinimize?: DOMAttributes<HTMLButtonElement>['onClick'];
     onMaximize?: (isMaximized: boolean) => void;
     isMaximized?: boolean;
     setMaximized: (isMaximized: boolean) => void;
@@ -34,9 +34,9 @@ export interface FileWindowProps extends Omit<FileWindowContainerProps, "childre
 
 export type FileWindowElementEvents = {
     headerButtons: {
-        maximizeWindow: InnerFunctionElementEvent<SVGAElement, HeaderButtonsFileWindowProps>;
-        restoreDownWindow: InnerFunctionElementEvent<SVGAElement, HeaderButtonsFileWindowProps>;
-        onClickMinimize: InnerFunctionElementEvent<SVGAElement, HeaderButtonsFileWindowProps>;
-        onClickClose: InnerFunctionElementEvent<SVGAElement, HeaderButtonsFileWindowProps>;
+        maximizeWindow: InnerFunctionElementEvent<HTMLButtonElement, HeaderButtonsFileWindowProps>;
+        restoreDownWindow: InnerFunctionElementEvent<HTMLButtonElement, HeaderButtonsFileWindowProps>;
+        onClickMinimize: InnerFunctionElementEvent<HTMLButtonElement, HeaderButtonsFileWindowProps>;
+        onClickClose: InnerFunctionElementEvent<HTMLButtonElement, HeaderButtonsFileWindowProps>;
     }
 }
