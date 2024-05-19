@@ -1,6 +1,7 @@
 'use client';
 
-import { memo } from "react";
+import { memo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import IconFactory from "../IconFactory";
 import className from "./styles";
 import useOSSystemContext from "../hooks/useOSSystemContext";
@@ -31,6 +32,13 @@ const OpenFileShortcut: FC<{
             }
         });
     }
+
+    const { get } = useSearchParams();
+
+    useEffect(() => {
+        props.openWindowId === get('open') && onClickOpenWindow();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <a onClick={onClickOpenWindow} className={className.shortcutAppWrapper.toClassName()} title={props.title}>
