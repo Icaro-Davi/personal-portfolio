@@ -34,18 +34,21 @@ const projects = [
     {
         title: 'Poing (Discord Bot)',
         imgSrc: '/poing.webp',
+        projectUrl: 'https://discord.com/oauth2/authorize?client_id=955202209681916044&permissions=1239366789246&scope=bot%20applications.commands',
         codeUrl: 'https://github.com/Icaro-Davi/Poing',
         tags: KnownTechnologyRefs.get('NodeJS', 'DiscordJS', 'MongoDB', 'Typescript')
     },
     {
         title: 'Poing (Web)',
         imgSrc: '/poing.webp',
+        projectUrl: 'https://poing-web.vercel.app',
         codeUrl: 'https://github.com/Icaro-Davi/poing-web',
         tags: KnownTechnologyRefs.get('NodeJS', 'NextJS', 'Typescript', 'Styled COmponents')
     },
     {
         title: 'Poing (API)',
         imgSrc: '/poing.webp',
+        projectUrl: 'https://poing-api.onrender.com',
         codeUrl: 'https://github.com/Icaro-Davi/poing-web',
         tags: KnownTechnologyRefs.get('NodeJS', 'ExpressJS', 'Typescript', 'MongoDB', 'Redis')
     },
