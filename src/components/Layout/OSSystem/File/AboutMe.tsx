@@ -12,7 +12,7 @@ const AboutMe: FC = () => (
             <NerdFaceEmoji size={36} />
         </h2>
         <div className="pt-4 flex flex-wrap justify-center items-center text-lg">
-            <div className="border w-[200px] h-[270px] mr-2 relative">
+            <div className="border w-[230px] h-[320px] mr-2 relative">
                 <Image
                     title="Icaro Davi"
                     alt="Foto do Icaro Davi"
@@ -23,17 +23,18 @@ const AboutMe: FC = () => (
             </div>
             <div className="flex-1 min-w-[300px]">
                 <p className="font-medium pt-4 text-justify">
-                    Sou desenvolvedor FullStack apaixonado por tecnologia, com experiência sólida em projetos web. Graduei-me em Sistemas de Informações em 2020
+                    Sou desenvolvedor <strong>FullStack</strong> apaixonado por tecnologia, com experiência sólida em projetos web. Graduei-me em Sistemas de Informações em 2020
                     e desde então venho me aperfeiçoando continuamente.
                 </p>
                 <p className="font-medium pt-4 text-justify">
-                    Meus principais conhecimentos estão na criação de aplicações web utilizando HTML, CSS3, Javascript e NodeJS. Tenho interesse em adquirir novos
+                    Meus principais conhecimentos estão na criação de aplicações web utilizando <strong>HTML</strong>, <strong>CSS3</strong>, <strong>Javascript/Typescript</strong> e <strong>NodeJS</strong>. Tenho interesse em adquirir novos
                     conhecimentos, principalmente sobre tecnologias, e buscar manter-me atualizado sobre as últimas tendências.
                 </p>
             </div>
             <p className="font-medium pt-4 text-justify min-w-[300px]">
-                Além disso, nos meus momentos livres, gosto de estudar, jogar jogos online com amigos e consumir conteúdo de anime, mangás, filmes e séries. Se 
-                precisasse me definir, diria que sou uma pessoa concentrada, focada, fiel e companheira, sempre em busca de desafios que me permitam crescer
+                Contando um pouco sobre mim, sou <strong>autodidata</strong> e, em meus momentos livres, gosto de estudar temas relacionados às tecnologias de programação. 
+                Para me divertir e manter a saúde em dia, faço academia, e também consumo animes e mangás. Se precisasse me definir, 
+                diria que sou uma pessoa <strong>concentrada</strong>, <strong>focada</strong>, <strong>fiel</strong> e <strong>companheira</strong>, sempre em busca de desafios que me permitam crescer 
                 profissionalmente.
             </p>
         </div>
