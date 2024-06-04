@@ -50,7 +50,7 @@ const projects = [
         imgSrc: '/poing.webp',
         projectUrl: 'https://poing-api.onrender.com',
         codeUrl: 'https://github.com/Icaro-Davi/poing-web',
-        tags: KnownTechnologyRefs.get('NodeJS', 'ExpressJS', 'Typescript', 'MongoDB', 'Redis')
+        tags: KnownTechnologyRefs.get('NodeJS', 'ExpressJS', 'Typescript', 'MongoDB')
     },
 ];
 
