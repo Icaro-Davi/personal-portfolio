@@ -5,6 +5,7 @@ import Abilities from "./File/Abilities";
 import Contact from "./File/Contact";
 
 import type { WorkspaceAppsType } from "./types";
+import Curriculum from "./File/Curriculum";
 
 const WorkspaceApps: WorkspaceAppsType = [
     {
@@ -39,6 +40,13 @@ const WorkspaceApps: WorkspaceAppsType = [
         iconName: 'CONTACT',
         id: 'contact',
         content: <Contact />
+    },
+    {
+        title: 'Currículo',
+        fileExtension: '.pdf',
+        iconName: 'ABOUT_ME',
+        id: 'curriculum',
+        content: <Curriculum />
     }
 ]
 
