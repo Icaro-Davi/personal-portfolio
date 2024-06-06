@@ -1,7 +1,7 @@
 import GlitchText from './Text';
 import type { AnchorHTMLAttributes, FC, ReactNode } from "react";
 
-type GlitchLinkProps = {
+export type GlitchLinkProps = {
     children?: ReactNode;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
