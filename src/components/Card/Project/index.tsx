@@ -2,7 +2,7 @@ import { memo } from "react";
 import Image from 'next/image';
 import { IoMdOpen, IoMdCode } from "react-icons/io";
 import className from "./styled";
-import LinkButton from "./LinkButton";
+import LinkButton from "../../Buttons/LinkButton";
 import TagDashed from "@/components/Tag/Dashed";
 
 import type { FC } from "react";
