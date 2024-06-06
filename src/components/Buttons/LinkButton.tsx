@@ -1,18 +1,25 @@
 import className from "./styled";
 import GlitchText from '@/components/Glitch/Text';
 
-import type { FC, ReactNode } from "react";
+import type { AnchorHTMLAttributes, FC, ReactNode } from "react";
 import type { IconType } from "react-icons";
 
-const LinkButton: FC<{ children?: ReactNode; href?: string; icon?: IconType }> = ({ icon: Icon, children, href, ...props }) => (
+type LinkButtonProps = {
+    children?: ReactNode;
+    href?: string;
+    icon?: IconType;
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
+
+const LinkButton: FC<LinkButtonProps> = ({ icon: Icon, children, href, className: CN, ...props }) => (
     <a
         href={href}
         target="_blank"
         className={
-            className.button
+            className.linkButton
                 .callConditional('disabled', !href)
-                .toClassName()
+                .toClassName(CN)
         }
+        {...props}
     >
         {href ? (
             <GlitchText>{children}</GlitchText>
