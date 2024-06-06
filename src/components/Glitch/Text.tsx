@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, Children, isValidElement } from "react";
 import CreateTailwindStyle from "@/utils/CreateTailwindStyle";
 import type { FC, ReactNode } from "react";
 
@@ -36,8 +36,22 @@ const className = {
     ])
 }
 
+const extractTextFromChild = (children: ReactNode) => {
+    let text = '';
+    Children.forEach(children, child => {
+        if (typeof child === 'string') {
+            text += child;
+            return;
+        }
+        if (isValidElement(child)) {
+            text += extractTextFromChild(child.props.children);
+        }
+    });
+    return text;
+}
+
 const GlitchText: FC<{ children?: ReactNode }> = props => {
-    const childText = (props.children!.toString().replaceAll(',', ''));
+    const childText = extractTextFromChild(props.children);
     if (typeof childText !== 'string') throw new Error('Children must be string');
     return (
         <span
