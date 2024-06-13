@@ -1,5 +1,10 @@
 {
   "Index": {
+    "metadata": {
+      "title": "{ownerName} Dev | Portfólio",
+      "description": "Olá meu nome é {ownerName} e esse é o meu portfólio, entre e descubra mais sobre mim.",
+      "siteName": "Bem vindo ao portfolio do {ownerName}!"
+    },
     "file": {
       "skills": { "title": "Habilidades" },
       "about_me": { "title": "Sobre Mim" },
