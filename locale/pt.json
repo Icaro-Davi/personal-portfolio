@@ -3,15 +3,26 @@
     "metadata": {
       "title": "{ownerName} Dev | Portfólio",
       "description": "Olá meu nome é {ownerName} e esse é o meu portfólio, entre e descubra mais sobre mim.",
-      "siteName": "Bem vindo ao portfolio do {ownerName}!"
+      "site_name": "Bem vindo ao portfolio do {ownerName}!"
     },
     "file": {
-      "skills": { "title": "Habilidades" },
+      "skills": {
+        "title": "Habilidades",
+        "my_skills": "Minhas Habilidades"
+      },
       "about_me": { "title": "Sobre Mim" },
-      "projects": { "title": "Projetos" },
+      "projects": {
+        "title": "Projetos"
+      },
       "education": { "title": "Educação" },
       "contact": { "title": "Contato" },
-      "curriculum": { "title": "Currículo" }
+      "curriculum": {
+        "title": "Currículo",
+        "failed_preview_PDF": {
+          "message": "Você não possui o plugin necessário para poder visualizar o PDF, não se preocupe você pode fazer o download do pdf",
+          "click_here_download_button": "clicando aqui"
+        }
+      }
     },
     "workspace": {}
   }
