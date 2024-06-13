@@ -6,7 +6,7 @@ import type { FC } from "react";
 const GradientDividerFromCenter: FC<{ toVertical?: boolean }> = props => {
     className.gradientDivider.callConditional('direction', !props.toVertical)
     return (
-        <div className={className.gradientDivider.toClassName()}></div>
+        <span className={className.gradientDivider.toClassName()}></span>
     );
 }
 
