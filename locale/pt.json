@@ -1,0 +1,13 @@
+{
+  "Index": {
+    "file": {
+      "skills": { "title": "Habilidades" },
+      "about_me": { "title": "Sobre Mim" },
+      "projects": { "title": "Projetos" },
+      "education": { "title": "Educação" },
+      "contact": { "title": "Contato" },
+      "curriculum": { "title": "Currículo" }
+    },
+    "workspace": {}
+  }
+}
