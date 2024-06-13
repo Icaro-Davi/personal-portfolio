@@ -30,7 +30,7 @@ export async function generateMetadata({ params: { locale } }: MetadataParams) {
       type: "website",
       images: "/coffee_os.png",
       url: "/",
-      siteName: t("metadata.siteName", { ownerName }),
+      siteName: t("metadata.site_name", { ownerName }),
     },
   };
 
