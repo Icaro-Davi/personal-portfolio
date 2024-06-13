@@ -12,7 +12,6 @@ export type AppIcon = {
 }
 
 export type WorkspaceAppsType = {
-    title: string;
     iconName: AppIconsName;
     id: string;
     content: ReactNode;

@@ -9,40 +9,34 @@ import Curriculum from "./File/Curriculum";
 
 const WorkspaceApps: WorkspaceAppsType = [
     {
-        title: 'Habilidades',
         iconName: 'SKILLS',
         id: 'skills',
         content: <Abilities />
     },
     {
-        title: 'Sobre mim',
         fileExtension: '.doc',
         iconName: 'ABOUT_ME',
         id: 'about_me',
         content: <AboutMe />
     },
     {
-        title: 'Projetos',
         iconName: 'PROJECTS',
         id: 'projects',
         content: <Projects />
     },
     {
-        title: 'Educação',
         fileExtension: '',
         iconName: 'EDUCATION',
         id: 'education',
         content: <Timeline />,
     },
     {
-        title: 'Contato',
         fileExtension: '.exe',
         iconName: 'CONTACT',
         id: 'contact',
         content: <Contact />
     },
     {
-        title: 'Currículo',
         fileExtension: '.pdf',
         iconName: 'ABOUT_ME',
         id: 'curriculum',
