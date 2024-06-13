@@ -8,5 +8,5 @@ export default async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: [`/((?!_next|favicon.ico)(?=pt|en)?.*)`],
+  matcher: [`/((?!_next|favicon.ico)(?=pt|en).*)`],
 };
