@@ -10,7 +10,21 @@
         "title": "Habilidades",
         "my_skills": "Minhas Habilidades"
       },
-      "about_me": { "title": "Sobre Mim" },
+      "about_me": {
+        "title": "Sobre Mim",
+        "document_file": {
+          "title": "Olá me chamo {ownerName}",
+          "owner_picture": {
+            "title": "Foto do {ownerName} tirada no restaurante beco hexagonal.",
+            "alt": "Foto do {ownerName}"
+          },
+          "paragraphs": {
+            "1st": "Sou desenvolvedor <b>FullStack</b> apaixonado por tecnologia, com experiência sólida em projetos web. Graduei-me em Sistemas de Informações em 2020 e desde então venho me aperfeiçoando continuamente.",
+            "2st": "Meus principais conhecimentos estão na criação de aplicações web utilizando <b>HTML</b>, <b>CSS3</b>, <b>Javascript/Typescript</b> e <b>NodeJS</b>. Tenho interesse em adquirir novos conhecimentos, principalmente sobre tecnologias, e buscar manter-me atualizado sobre as últimas tendências.",
+            "3st": "Contando um pouco sobre mim, sou <b>autodidata</b> e, em meus momentos livres, gosto de estudar temas relacionados às tecnologias de programação. Para me divertir e manter a saúde em dia, faço academia, e também consumo animes e mangás. Se precisasse me definir, diria que sou uma pessoa <b>concentrada</b>, <b>focada</b>, <b>fiel</b> e <b>companheira</b>, sempre em busca de desafios que me permitam crescer profissionalmente."
+          }
+        }
+      },
       "projects": {
         "title": "Projetos"
       },
