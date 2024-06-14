@@ -1,33 +1,35 @@
-import type { FC } from "react";
+import { useTranslations } from "next-intl";
 import Input from "../Input";
 import TextArea from "../TextArea";
 import SubmitFormButton from "../Submit";
+import type { FC } from "react";
 
 type ContactMailProps = {
     mailto: string;
 }
 
 const ContactMailForm: FC<ContactMailProps> = (props) => {
+    const t = useTranslations('Index.file.contact.form_field');
     return (
         <form method="POST" action={`mailto:${props.mailto}`} encType="text/plain" className="m-auto">
             <Input
                 name="name"
                 type='text'
-                title="Nome:"
-                placeholder="John Doe"
+                title={`${t('name.label')}:`}
+                placeholder={t('name.placeholder')}
             />
             <Input
                 name="email"
                 type='email'
-                title="Email:"
-                placeholder="johndoe@example.com"
+                title={`${t('email.label')}:`}
+                placeholder={t('email.placeholder')}
             />
             <TextArea 
-                title="Mensagem:"
                 name="message"
-                placeholder="Hello World my friend!"
+                title={`${t('message.label')}:`}
+                placeholder={t('message.placeholder')}
             />
-            <SubmitFormButton title="Enviar" />
+            <SubmitFormButton title={t('submit_button')} />
         </form>
     );
 }

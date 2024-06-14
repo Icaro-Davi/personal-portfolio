@@ -29,7 +29,26 @@
         "title": "Projetos"
       },
       "education": { "title": "Educação" },
-      "contact": { "title": "Contato" },
+      "contact": {
+        "title": "Contato",
+        "whatsapp_submit_message": "'Olá Cheguei através do seu portfolio, vamos conversar!'",
+        "form_description": "Deseja entrar em <TextLinkMail>contato</TextLinkMail> comigo 😀? Mande-me uma <TextLinkMail>mensagem ✉️</TextLinkMail>!",
+        "form_field": {
+          "name": {
+            "label": "Nome",
+            "placeholder": "Fulano da Silva"
+          },
+          "email": {
+            "label": "Email",
+            "placeholder": "seufulado@mail.com"
+          },
+          "message": {
+            "label": "Mensagem",
+            "placeholder": "Digite uma mensagem legal!"
+          },
+          "submit_button": "Enviar"
+        }
+      },
       "curriculum": {
         "title": "Currículo",
         "failed_preview_PDF": {
