@@ -6,6 +6,9 @@
       "site_name": "Bem vindo ao portfolio do {ownerName}!"
     },
     "file": {
+      "projects": {
+        "title": "Projetos"
+      },
       "skills": {
         "title": "Habilidades",
         "my_skills": "Minhas Habilidades"
@@ -25,10 +28,21 @@
           }
         }
       },
-      "projects": {
-        "title": "Projetos"
+      "education": { 
+        "title": "Educação",
+        "timeline": {
+          "free_code_camp": {
+            "title": "FreeCodeCamp",
+            "description": "FreeCodeCamp é uma plataforma online que oferece cursos gratuitos de programação, desenvolvimento web e tecnologias relacionadas.",
+            "sub_title": "Cursos finalizados"
+          },
+          "udemy": {
+            "title": "Cursos da Udemy",
+            "description": "Udemy é uma plataforma de ensino online que oferece uma ampla variedade de cursos pagos e gratuitos em diversas áreas.",
+            "sub_title": "Cursos finalizados"
+          }
+        }
       },
-      "education": { "title": "Educação" },
       "contact": {
         "title": "Contato",
         "whatsapp_submit_message": "'Olá Cheguei através do seu portfolio, vamos conversar!'",
