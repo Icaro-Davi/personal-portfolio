@@ -2,7 +2,7 @@
 
 import className from './styles';
 import IconFactory from '../IconFactory';
-import useOSSystemContext from "../hooks/useOSSystemContext";
+import useOSSystemContext from "../../../hooks/useOSSystemContext";
 
 import type { FC, ReactNode } from "react";
 import type { AppIconWrapperProps, AppIcons } from './types';

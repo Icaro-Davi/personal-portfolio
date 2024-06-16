@@ -2,7 +2,7 @@ import { PiCoffeeBold } from "react-icons/pi";
 import MatrixCodeFalling from "./MatrixCodeFalling";
 
 import type { FC } from "react";
-import useOSSystemContext from "../hooks/useOSSystemContext";
+import useOSSystemContext from "../../../hooks/useOSSystemContext";
 
 const Wallpaper: FC = props => {
     const { state } = useOSSystemContext();

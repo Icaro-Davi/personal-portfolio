@@ -1,6 +1,6 @@
-import type { ReducerActionType, WindowState } from "../hooks/useOSSystemReducer/types";
+import type { ReducerActionType, WindowState } from "../../../hooks/useOSSystemReducer/types";
 import type { DOMAttributes, Dispatch } from "react";
-import { OnWindowMovementEndFunc } from "../hooks/useWindowMovement/types";
+import { OnWindowMovementEndFunc } from "../../../hooks/useWindowMovement/types";
 
 type ThisEventTypeDispatch = {
     windowState: WindowState;

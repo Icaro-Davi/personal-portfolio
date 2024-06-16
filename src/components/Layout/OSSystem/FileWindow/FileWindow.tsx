@@ -2,9 +2,9 @@
 
 import { useMemo } from "react";
 import { Container, Header } from "@/components/FileWindow";
-import useOSSystemContext from "../hooks/useOSSystemContext";
-import useWindowMovement from "../hooks/useWindowMovement";
-import getStyleByWindowState from "./getStylesByWindowState";
+import useOSSystemContext from "../../../hooks/useOSSystemContext";
+import useWindowMovement from "../../../hooks/useWindowMovement";
+import getStyleByWindowState from "../../../FileWindow/getStylesByWindowState";
 import events from "./events";
 
 import type { FC } from "react";

@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import OSSystemProvider from "./hooks/useOSSystemContext/Provider";
+import OSSystemProvider from "../../hooks/useOSSystemContext/Provider";
 
 const Screen = dynamic(() => import("./Screen"), {
   ssr: false,

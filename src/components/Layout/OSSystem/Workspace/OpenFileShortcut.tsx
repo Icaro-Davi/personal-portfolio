@@ -4,7 +4,7 @@ import { memo, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import IconFactory from "../IconFactory";
 import className from "./styles";
-import useOSSystemContext from "../hooks/useOSSystemContext";
+import useOSSystemContext from "../../../hooks/useOSSystemContext";
 import TextBorder from "@/components/TextBorder";
 import GlitchText from "@/components/Glitch/Text";
 import { colors } from "@/settings/tailwind/theme";

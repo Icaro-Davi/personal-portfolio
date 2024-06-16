@@ -1,7 +1,7 @@
 'use client';
 
 import { Fragment, memo } from "react";
-import useOSSystemContext from "../hooks/useOSSystemContext";
+import useOSSystemContext from "../../../hooks/useOSSystemContext";
 
 import type { FC } from "react";
 import FileWindow from "./FileWindow";

@@ -1,7 +1,7 @@
 import Clock from './Clock';
 import IconsBar from './IconsBar';
 import BottomBarOptions from './Options';
-import useOSSystemContext from '../hooks/useOSSystemContext';
+import useOSSystemContext from '../../../hooks/useOSSystemContext';
 
 import type { FC } from "react";
 

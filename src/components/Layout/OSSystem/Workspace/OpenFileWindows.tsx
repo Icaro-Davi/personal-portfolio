@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import useOSSystemContext from "../hooks/useOSSystemContext";
+import useOSSystemContext from "../../../hooks/useOSSystemContext";
 import FileWindow from "../FileWindow";
 
 import type { ReactNode, FC } from "react";

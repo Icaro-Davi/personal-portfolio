@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { AppIconsName } from "../../types";
+import type { AppIconsName } from "../../Layout/OSSystem/types";
 
 export type WindowState = {
     id: string;

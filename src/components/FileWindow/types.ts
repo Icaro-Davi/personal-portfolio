@@ -1,6 +1,6 @@
 import type { DOMAttributes, HTMLAttributes, ReactNode } from "react"
 import type { InnerFunctionElementEvent } from "../types";
-import type { OnWindowMovementEndFunc } from "../Layout/OSSystem/hooks/useWindowMovement/types";
+import type { OnWindowMovementEndFunc } from "../hooks/useWindowMovement/types";
 
 export type HeaderButtonsFileWindowProps = {
     onClickClose?: DOMAttributes<HTMLButtonElement>['onClick'];

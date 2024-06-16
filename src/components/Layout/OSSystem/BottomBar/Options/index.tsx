@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, Fragment } from "react";
 import { LuWallpaper } from "react-icons/lu";
 import { GiMagicPortal } from "react-icons/gi";
 import GlitchText from '@/components/Glitch/Text';
-import useOSSystemContext from "../../hooks/useOSSystemContext";
+import useOSSystemContext from "../../../../hooks/useOSSystemContext";
 import OptionButton from "./OptionButton";
 
 import type { FC } from "react";
