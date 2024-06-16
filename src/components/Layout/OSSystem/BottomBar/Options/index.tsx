@@ -7,22 +7,25 @@ import OptionButton from "./OptionButton";
 
 import type { FC } from "react";
 import GradientDividerFromCenter from "@/components/Divider/GradientDividerFromCenter";
+import { useTranslations } from "next-intl";
 
 const BottomBarOptions: FC = () => {
     const { state, dispatch } = useOSSystemContext();
     const divRef = useRef<HTMLDivElement>(null);
+    const t = useTranslations('Index.bottom_bar.os_button_menu');
+    
     const Options = useMemo(() => [
         {
+            key: 'wallpaper',
             onClick: () => dispatch({ type: 'wallpaperVisibility', payload: { isActive: !state.wallpaper.isActive } }),
             icon: LuWallpaper,
             iconActive: state.wallpaper.isActive,
-            title: 'Wallpaper'
         },
         {
+            key: 'screen_effect',
             onClick: () => dispatch({ type: 'screenEffectVisibility', payload: { isActive: !state.screenEffect.isActive } }),
             icon: GiMagicPortal,
             iconActive: state.screenEffect.isActive,
-            title: 'Efeito de tela'
         },
     ], [state.wallpaper.isActive, state.screenEffect.isActive, dispatch]);
 
@@ -48,7 +51,7 @@ const BottomBarOptions: FC = () => {
                         onMouseDown={e => e.preventDefault()}
                     >
                         <GlitchText>
-                            {optionProps.title}
+                            {t(`${optionProps.key}` as any)}
                         </GlitchText>
                     </OptionButton>
                     {index < (Options.length - 1) && (
