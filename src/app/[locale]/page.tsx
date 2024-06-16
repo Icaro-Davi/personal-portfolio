@@ -1,15 +1,19 @@
 import { getTranslations } from "next-intl/server";
 import OSSystem from "@/components/Layout/OSSystem";
 import type { Metadata } from "next";
+import i18nStaticValues from "@/utils/i18n/staticValues";
 
 type MetadataParams = { params: { locale: string } };
 
 export async function generateMetadata({ params: { locale } }: MetadataParams) {
   const t = await getTranslations({ locale, namespace: "Index" });
-  const ownerName = "Icaro Davi";
+  const translateValues = {
+    ...i18nStaticValues,
+    ownerName: i18nStaticValues.ownerName.split(' ').slice(0, 2).join(' ')
+  }
 
-  const title = t("metadata.title", { ownerName });
-  const description = t("metadata.description", { ownerName });
+  const title = t("metadata.title", translateValues);
+  const description = t("metadata.description", translateValues);
   const metadata: Metadata = {
     title,
     description,
@@ -30,7 +34,7 @@ export async function generateMetadata({ params: { locale } }: MetadataParams) {
       type: "website",
       images: "/coffee_os.png",
       url: "/",
-      siteName: t("metadata.site_name", { ownerName }),
+      siteName: t("metadata.site_name", translateValues),
     },
   };
 
