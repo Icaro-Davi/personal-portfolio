@@ -1,4 +1,28 @@
 {
+  "_Shared": {
+    "locale_name": {
+      "pt": "Português",
+      "en": "Inglês"
+    }
+  },
+  "Root": {
+    "metadata": {
+      "title": "Bem vindo"
+    },
+    "window": {
+      "title": "Bem vindo ao Coffee OS",
+      "card": {
+        "title": "Bem vindo, me chamo {ownerName}",
+        "sub_title": "e sou um desenvolvedor <b>'<FullStack /'></b>.",
+        "locale_links_description": "Acesse o portfólio selecionando o idioma desejado abaixo:",
+        "title_link": "Acesse o portfólio em {locale_name}",
+        "image": {
+          "title": "Foto do {ownerName} tirada no restaurante beco hexagonal.",
+          "alt": "Foto do {ownerName}"
+        }
+      }
+    }
+  },
   "Index": {
     "metadata": {
       "title": "{ownerName} Dev | Portfólio",
@@ -28,7 +52,7 @@
           }
         }
       },
-      "education": { 
+      "education": {
         "title": "Educação",
         "timeline": {
           "free_code_camp": {
