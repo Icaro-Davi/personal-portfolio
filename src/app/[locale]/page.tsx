@@ -13,28 +13,19 @@ export async function generateMetadata({ params: { locale } }: MetadataParams) {
   }
 
   const title = t("metadata.title", translateValues);
-  const description = t("metadata.description", translateValues);
+  const description = t("metadata.description");
   const metadata: Metadata = {
     title,
     description,
-    creator: "Icaro Davi Duarte Romualdo",
-    keywords: [
-      "Portfolio",
-      "Jobs",
-      "FullStack",
-      "FrontEnd",
-      "BackEnd",
-      "Developer",
-    ],
     metadataBase: new URL(`${process.env.ABSOLUTE_PATH_URL ?? ""}/${locale}`),
     openGraph: {
       title,
       description,
-      locale: "pt",
+      locale,
       type: "website",
       images: "/coffee_os.png",
-      url: "/",
-      siteName: t("metadata.site_name", translateValues),
+      url: `/`,
+      siteName: t("metadata.site_name"),
     },
   };
 

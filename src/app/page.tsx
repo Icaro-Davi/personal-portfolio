@@ -14,9 +14,27 @@ import type { Metadata } from "next";
 export async function generateMetadata() {
   const locale = cookies().get(CookieKey.LOCALE)?.value ?? "pt";
   const t = await getTranslations({ locale, namespace: "Root" });
+  const translateValues = {
+    ...i18nStaticValues,
+    ownerName: i18nStaticValues.ownerName.split(" ").slice(0, 2).join(" "),
+  }
+  const title = t("metadata.title", translateValues);
+  const description = t("metadata.description", translateValues);
+  const url = new URL(`${process.env.ABSOLUTE_PATH_URL ?? ""}/`);
 
   const metadata: Metadata = {
-    title: t("metadata.title"),
+    title,
+    description,
+    metadataBase: url,
+    openGraph: {
+      title,
+      description,
+      locale,
+      type: "website",
+      images: "/icaro_picture.jpg",
+      url: "/",
+      siteName: t("metadata.site_name", translateValues),
+    },
   };
 
   return metadata;

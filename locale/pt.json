@@ -7,7 +7,9 @@
   },
   "Root": {
     "metadata": {
-      "title": "Bem vindo"
+      "title": "{ownerName} | FullStack Dev",
+      "description": "Olá meu nome é {ownerName} e esse é o meu portfólio, entre e descubra mais sobre mim.",
+      "site_name": "Bem vindo ao portfolio do {ownerName}!"
     },
     "window": {
       "title": "Bem vindo ao Coffee OS",
@@ -26,8 +28,8 @@
   "Index": {
     "metadata": {
       "title": "{ownerName} Dev | Portfólio",
-      "description": "Olá meu nome é {ownerName} e esse é o meu portfólio, entre e descubra mais sobre mim.",
-      "site_name": "Bem vindo ao portfolio do {ownerName}!"
+      "description": "Acesse e escolha o idioma desejado para ser levado ao meu portfolio e conhecer mais um pouco sobre mim e meus projetos.",
+      "site_name": "Olá, acesse e venha conhecer mais sobre mim e meus projetos."
     },
     "file": {
       "projects": {
