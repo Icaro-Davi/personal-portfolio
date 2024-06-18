@@ -21,10 +21,10 @@ const Button: FC<{ icon: IconType } & ButtonHTMLAttributes<HTMLButtonElement>> =
 const HeaderButtons: FC<HeaderButtonsFileWindowProps> = props => {
     return (
         <div className="flex items-center window-movement-off">
-            <Button
+            {props.onClickMinimize && <Button
                 icon={FaRegWindowMinimize}
                 onClick={events.headerButtons.onClickMinimize.bind({ ...props })}
-            />
+            />}
             {
                 props.isMaximized
                     ? (
@@ -40,11 +40,11 @@ const HeaderButtons: FC<HeaderButtonsFileWindowProps> = props => {
                         />
                     )
             }
-            <Button
+            {props.onClickClose && <Button
                 className="hover:text-red-500"
                 icon={IoMdClose}
                 onClick={events.headerButtons.onClickClose.bind({ ...props })}
-            />
+            />}
         </div>
     );
 }
