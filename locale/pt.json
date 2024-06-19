@@ -28,12 +28,16 @@
   "Index": {
     "metadata": {
       "title": "{ownerName} Dev | Portfólio",
-      "description": "Acesse e escolha o idioma desejado para ser levado ao meu portfolio e conhecer mais um pouco sobre mim e meus projetos.",
+      "description": "Bem vindo ao portfolio Coffee OS ele é feito inspirado no layout dos sistemas operacionais de desktop.",
       "site_name": "Olá, acesse e venha conhecer mais sobre mim e meus projetos."
     },
     "file": {
       "projects": {
-        "title": "Projetos"
+        "title": "Projects",
+        "card": {
+          "code_btn": "Código",
+          "project_btn": "Projeto"
+        }
       },
       "skills": {
         "title": "Habilidades",
@@ -92,7 +96,7 @@
       "curriculum": {
         "title": "Currículo",
         "failed_preview_PDF": {
-          "message": "Você não possui o plugin necessário para poder visualizar o PDF, não se preocupe você pode fazer o download do pdf",
+          "message": "Você não possui o plugin necessário para poder visualizar o PDF, não se preocupe você pode fazer o download do PDF",
           "click_here_download_button": "clicando aqui"
         }
       }
