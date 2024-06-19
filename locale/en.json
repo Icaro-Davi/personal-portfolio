@@ -1,0 +1,112 @@
+{
+  "_Shared": {
+    "locale_name": {
+      "pt": "Portuguese",
+      "en": "English"
+    }
+  },
+  "Root": {
+    "metadata": {
+      "title": "{ownerName} | FullStack Dev",
+      "description": "Hello, my name is {ownerName} and this is my portfolio, come in and find out more about me.",
+      "site_name": "Welcome to {ownerName}'s portfolio!"
+    },
+    "window": {
+      "title": "Welcome to Coffee OS",
+      "card": {
+        "title": "Welcome, my name is {ownerName}",
+        "sub_title": "and i am a <b>'<FullStack /'></b> developer.",
+        "locale_links_description": "Access the portfolio by selecting the desired language below:",
+        "title_link": "Access the portfolio in {locale_name}.",
+        "image": {
+          "title": "Photo by {ownerName} taken at the beco hexagonal restaurant.",
+          "alt": "Photo by {ownerName}"
+        }
+      }
+    }
+  },
+
+  "Index": {
+    "metadata": {
+      "title": "{ownerName} Dev | Portfolio",
+      "description": "Welcome to the Coffee OS portfolio, inspired by desktop operating system layouts.",
+      "site_name": "Hello, access and learn more about me and my projects."
+    },
+    "file": {
+      "projects": {
+        "title": "Projects",
+        "card": {
+          "code_btn": "Code",
+          "project_btn": "Projects"
+        }
+      },
+      "skills": {
+        "title": "Skills",
+        "my_skills": "My Skills"
+      },
+      "about_me": {
+        "title": "About Me",
+        "document_file": {
+          "title": "Hello, my name is {ownerName}",
+          "owner_picture": {
+            "title": "{ownerName}'s photo taken at Beco Hexagonal restaurant.",
+            "alt": "{ownerName}'s photo"
+          },
+          "paragraphs": {
+            "1st": "I am a passionate <b>FullStack</b> developer with solid experience in web projects. I graduated in Information Systems in 2020 and have been continuously improving since then.",
+            "2st": "My main skills are in creating web applications using <b>HTML</b>, <b>CSS3</b>, <b>JavaScript/TypeScript</b>, and <b>NodeJS</b>. I am keen on acquiring new knowledge, especially about technologies, and strive to stay updated on the latest trends.",
+            "3st": "A bit about myself: I am <b>self-taught</b> and in my free time, I like to study topics related to programming technologies. For fun and to keep fit, I go to the gym, and I also enjoy watching anime and reading manga. If I had to define myself, I would say I am a <b>focused</b>, <b>dedicated</b>, <b>loyal</b>, and <b>supportive</b> person, always seeking challenges that allow me to grow professionally."
+          }
+        }
+      },
+      "education": {
+        "title": "Education",
+        "timeline": {
+          "free_code_camp": {
+            "title": "FreeCodeCamp",
+            "description": "FreeCodeCamp is an online platform offering free courses in programming, web development, and related technologies.",
+            "sub_title": "Completed Courses"
+          },
+          "udemy": {
+            "title": "Udemy Courses",
+            "description": "Udemy is an online learning platform offering a wide variety of paid and free courses in various fields.",
+            "sub_title": "Completed Courses"
+          }
+        }
+      },
+      "contact": {
+        "title": "Contact",
+        "whatsapp_submit_message": "'Hello, I came across your portfolio, let's talk!'",
+        "form_description": "Want to get in <TextLinkMail>contact</TextLinkMail> with me 😀? Send me a <TextLinkMail>message ✉️</TextLinkMail>!",
+        "form_field": {
+          "name": {
+            "label": "Name",
+            "placeholder": "John Doe"
+          },
+          "email": {
+            "label": "Email",
+            "placeholder": "yourname@mail.com"
+          },
+          "message": {
+            "label": "Message",
+            "placeholder": "Type a nice message!"
+          },
+          "submit_button": "Send"
+        }
+      },
+      "curriculum": {
+        "title": "Curriculum",
+        "failed_preview_PDF": {
+          "message": "You don't have the necessary plugin to view the PDF, don't worry, you can download the PDF",
+          "click_here_download_button": "by clicking here"
+        }
+      }
+    },
+    "bottom_bar": {
+      "os_button_menu": {
+        "wallpaper": "Wallpaper",
+        "screen_effect": "Screen Effect"
+      }
+    }
+  }
+}
