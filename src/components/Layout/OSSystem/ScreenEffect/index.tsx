@@ -1,18 +1,11 @@
 import { Fragment } from "react";
-import OldScreenEffect from "./OldScreen";
 import useOSSystemContext from "../../../hooks/useOSSystemContext";
+import ScreenEffect_ from "./ScreenEffect";
 
-import type { FC } from "react";
-
-const ScreenEffect: FC = () => {
+const ScreenEffect: React.FC = () => {
     const { state } = useOSSystemContext();
     if(!state.screenEffect.isActive) return <Fragment />;
-    return (
-        <div className="w-full h-full absolute z-50 pointer-events-none">
-            <OldScreenEffect />
-        </div>
-    )
+    return <ScreenEffect_ />;
 }
-
 
 export default ScreenEffect;
