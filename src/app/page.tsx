@@ -12,6 +12,8 @@ import i18nRichElements from "@/utils/i18n/richElements";
 import ScreenEffect from "@/components/Layout/OSSystem/ScreenEffect/ScreenEffect";
 
 import type { Metadata } from "next";
+import BrazilFlag from "@/components/Icons/BrasilFlag";
+import EUAFlag from "@/components/Icons/EUAFlag";
 
 export async function generateMetadata() {
   const locale = cookies().get(CookieKey.LOCALE)?.value ?? "pt";
@@ -87,9 +89,9 @@ export default async function Main() {
                         title={t("window.card.title_link", {
                           locale_name: st("locale_name.pt"),
                         })}
-                        className="flex items-center gap-1 mr-2 px-2 border-white border-2 border-opacity-10"
+                        className="flex items-center gap-1 mr-2 py-1 px-2 border-white border-2 border-opacity-10"
                       >
-                        <GlitchText className="text-base">🇧🇷</GlitchText>
+                        <BrazilFlag />
                         <GlitchText className="text-xs">
                           {st("locale_name.pt")}
                         </GlitchText>
@@ -99,9 +101,9 @@ export default async function Main() {
                         title={t("window.card.title_link", {
                           locale_name: st("locale_name.en"),
                         })}
-                        className="flex items-center gap-1 mr-2 px-2 border-white border-2 border-opacity-10"
+                        className="flex items-center gap-1 mr-2 py-1 px-2 border-white border-2 border-opacity-10"
                       >
-                        <GlitchText className="text-base">🇺🇸</GlitchText>
+                        <EUAFlag />
                         <GlitchText className="text-xs">
                           {st("locale_name.en")}
                         </GlitchText>
