@@ -97,7 +97,7 @@ export default async function Main() {
                       <Link
                         href="/en"
                         title={t("window.card.title_link", {
-                          locale_name: st("locale_name.pt"),
+                          locale_name: st("locale_name.en"),
                         })}
                         className="flex items-center gap-1 mr-2 px-2 border-white border-2 border-opacity-10"
                       >
