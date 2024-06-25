@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
 import { getTranslations } from "next-intl/server";
+import { IoLogoGithub, IoLogoLinkedin, IoMail } from "react-icons/io5";
 import FileWindow from "@/components/FileWindow/FileWindow";
 import GradientDividerFromCenter from "@/components/Divider/GradientDividerFromCenter";
 import GlitchText from "@/components/Glitch/Text";
@@ -10,10 +11,11 @@ import { CookieKey } from "@/utils/cookies/keys";
 import i18nStaticValues from "@/utils/i18n/staticValues";
 import i18nRichElements from "@/utils/i18n/richElements";
 import ScreenEffect from "@/components/Layout/OSSystem/ScreenEffect/ScreenEffect";
-
-import type { Metadata } from "next";
 import BrazilFlag from "@/components/Icons/BrasilFlag";
 import EUAFlag from "@/components/Icons/EUAFlag";
+import DashedTag from "@/components/Tag/Dashed";
+
+import type { Metadata } from "next";
 
 export async function generateMetadata() {
   const locale = cookies().get(CookieKey.LOCALE)?.value ?? "pt";
@@ -78,6 +80,32 @@ export default async function Main() {
                   <p className="text-lg">
                     {t.rich("window.card.sub_title", i18nRichElements)}
                   </p>
+                  <div className="flex gap-2 pb-1">
+                    <DashedTag
+                      href="https://linkedin.com/in/icaro-davi"
+                      icon={IoLogoLinkedin}
+                      title="LinkedIn"
+                      className="border-opacity-10 border-white"
+                    >
+                      LinkedIn
+                    </DashedTag>
+                    <DashedTag
+                      href="mailto:icarodaviduarte@gmail.com"
+                      icon={IoMail}
+                      title="Email"
+                      className="border-opacity-10 border-white"
+                    >
+                      Email
+                    </DashedTag>
+                    <DashedTag
+                      href="https://github.com/icaro-davi"
+                      icon={IoLogoGithub}
+                      title="GitHub"
+                      className="border-opacity-10 border-white"
+                    >
+                      GitHub
+                    </DashedTag>
+                  </div>
                   <GradientDividerFromCenter />
                   <div className="flex-shrink-0">
                     <h3 className="text-md pb-2">
