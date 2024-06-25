@@ -20,7 +20,7 @@ export default async function middleware(req: NextRequest) {
       const response = NextResponse.next();
       response.cookies.set(CookieKey.LOCALE, locale, {
         sameSite: "strict",
-        httpOnly: true,
+        httpOnly: false,
       });
       headers = new Headers(response.headers);
     }
