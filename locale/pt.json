@@ -104,7 +104,8 @@
     "bottom_bar": {
       "os_button_menu": {
         "wallpaper": "Papel de parede",
-        "screen_effect": "Efeito de tela"
+        "screen_effect": "Efeito de tela",
+        "change_locale": "Mudar Idioma"
       }
     }
   }
